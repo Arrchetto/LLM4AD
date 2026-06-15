@@ -28,19 +28,23 @@ from ...base import LLM
 
 
 class HttpsApi(LLM):
-    def __init__(self, host, key, model, timeout=60, **kwargs):
+    def __init__(self, host, key, model, timeout=60, max_retries=5, retry_delay=2, **kwargs):
         """Https API
         Args:
             host   : host name. please note that the host name does not include 'https://'
             key    : API key.
             model  : LLM model name.
             timeout: API timeout.
+            max_retries: Maximum retry attempts before raising the last API error.
+            retry_delay: Seconds to wait between retry attempts.
         """
         super().__init__(**kwargs)
         self._host = host
         self._key = key
         self._model = model
         self._timeout = timeout
+        self._max_retries = max(1, int(max_retries))
+        self._retry_delay = retry_delay
         self._kwargs = kwargs
         self._cumulative_error = 0
 
@@ -99,7 +103,7 @@ class HttpsApi(LLM):
                 messages = [{'role': 'user', 'content': text_content}]
 
         # Retry loop for handling network or API transient errors
-        while True:
+        for attempt in range(1, self._max_retries + 1):
             try:
                 conn = http.client.HTTPSConnection(self._host, timeout=self._timeout)
 
@@ -121,26 +125,41 @@ class HttpsApi(LLM):
                 data = res.read().decode('utf-8')
                 data = json.loads(data)
 
+                if 'error' in data:
+                    api_error = data['error']
+                    if isinstance(api_error, dict):
+                        message = api_error.get('message', str(api_error))
+                        error_type = api_error.get('type')
+                        detail = f'{message} ({error_type})' if error_type else message
+                    else:
+                        detail = str(api_error)
+                    raise RuntimeError(f'LLM API error from {self._host}: {detail}')
+
                 # Extract content from the standard response format
-                response = data['choices'][0]['message']['content']
+                try:
+                    response = data['choices'][0]['message']['content']
+                except (KeyError, IndexError, TypeError) as parse_error:
+                    raise RuntimeError(f'Unexpected LLM API response from {self._host}: {data}') from parse_error
                 # Reset error counter on success
-                if self.debug_mode:
-                    self._cumulative_error = 0
+                self._cumulative_error = 0
                 return response
 
             except Exception as e:
                 self._cumulative_error += 1
 
-                # In debug mode, crash after consecutive failures to allow debugging
+                if attempt >= self._max_retries:
+                    raise RuntimeError(
+                        f'{self.__class__.__name__} failed after {self._max_retries} attempts. '
+                        f'Please check your API host, API key, model, quota, and provider status. '
+                        f'Last error: {e}'
+                    ) from e
+
                 if self.debug_mode:
-                    if self._cumulative_error == 10:
-                        raise RuntimeError(f'{self.__class__.__name__} error: {traceback.format_exc()}.'
-                                           f'You may check your API host and API key.')
+                    print(f'{self.__class__.__name__} attempt {attempt}/{self._max_retries} failed: '
+                          f'{traceback.format_exc()}')
                 else:
-                    print(f'{self.__class__.__name__} error: {traceback.format_exc()}.'
-                          f'You may check your API host and API key.')
-                    time.sleep(2)
-                continue
+                    print(f'{self.__class__.__name__} attempt {attempt}/{self._max_retries} failed: {e}')
+                time.sleep(self._retry_delay)
 
     # def draw_sample(self, prompt: str | Any, *args, **kwargs) -> str:
     #     """
