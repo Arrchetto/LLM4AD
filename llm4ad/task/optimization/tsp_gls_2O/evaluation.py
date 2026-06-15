@@ -42,11 +42,16 @@ def evaluate(instance_data,n_ins,prob_size, eva: callable) -> np.ndarray:
     obj = np.mean(objs, axis=0)
     return -obj
 
-
-class TSP_GLS_2O_Evaluation(Evaluation):
     """Evaluator for traveling salesman problem."""
 
-    def __init__(self, **kwargs):
+class TSP_GLS_2O_Evaluation(Evaluation):
+    def __init__(self, timeout_seconds=60, **kwargs):
+        super().__init__(
+            template_program=template_program,
+            task_description=task_description,
+            use_numba_accelerate=False,
+            timeout_seconds=timeout_seconds
+        )
 
         """
             Args:
@@ -60,7 +65,7 @@ class TSP_GLS_2O_Evaluation(Evaluation):
             template_program=template_program,
             task_description=task_description,
             use_numba_accelerate=False,
-            timeout_seconds=20
+            timeout_seconds=timeout_seconds
         )
 
         self.n_instance = 16
