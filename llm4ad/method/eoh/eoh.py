@@ -38,6 +38,7 @@ from .sampler import EoHSampler
 from ...base import (
     Evaluation, LLM, Function, Program, TextFunctionProgramConverter, SecureEvaluator
 )
+from ...tools.llm.llm_api_https import LLMApiError
 from ...tools.profiler import ProfilerBase
 
 
@@ -117,6 +118,7 @@ class EoH:
 
         # statistics
         self._tot_sample_nums = 0
+        self._llm_api_failed = False
 
         # reset _initial_sample_nums_max
         self._initial_sample_nums_max = min(
@@ -201,6 +203,8 @@ class EoH:
         self._population.register_function(func)
 
     def _continue_loop(self) -> bool:
+        if self._llm_api_failed:
+            return False
         if self._max_generations is None and self._max_sample_nums is None:
             return True
         elif self._max_generations is not None and self._max_sample_nums is None:
@@ -254,6 +258,10 @@ class EoH:
                         break
             except KeyboardInterrupt:
                 break
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'EoH sampling stopped: {e}')
+                break
             except Exception as e:
                 if self._debug_mode:
                     traceback.print_exc()
@@ -270,7 +278,7 @@ class EoH:
         """Let a thread repeat {sample -> evaluate -> register to population}
         to initialize a population.
         """
-        while self._population.generation == 0:
+        while self._population.generation == 0 and not self._llm_api_failed:
             try:
                 # get a new func using i1
                 prompt = EoHPrompt.get_prompt_i1(self._task_description_str, self._function_to_evolve)
@@ -281,6 +289,10 @@ class EoH:
                         f'Note: During initialization, EoH gets {len(self._population) + len(self._population._next_gen_pop)} algorithms '
                         f'after {self._initial_sample_nums_max} trails.')
                     break
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'EoH initialization stopped: {e}')
+                break
             except Exception:
                 if self._debug_mode:
                     traceback.print_exc()

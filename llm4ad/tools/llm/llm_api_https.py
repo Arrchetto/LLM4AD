@@ -27,6 +27,10 @@ import traceback
 from ...base import LLM
 
 
+class LLMApiError(RuntimeError):
+    """Raised when the LLM API cannot return a valid completion after retries."""
+
+
 class HttpsApi(LLM):
     def __init__(self, host, key, model, timeout=60, max_retries=5, retry_delay=2, **kwargs):
         """Https API
@@ -148,7 +152,7 @@ class HttpsApi(LLM):
                 self._cumulative_error += 1
 
                 if attempt >= self._max_retries:
-                    raise RuntimeError(
+                    raise LLMApiError(
                         f'{self.__class__.__name__} failed after {self._max_retries} attempts. '
                         f'Please check your API host, API key, model, quota, and provider status. '
                         f'Last error: {e}'

@@ -37,6 +37,7 @@ from .prompt import ReEvoPrompt
 from ...base import (
     Evaluation, LLM, Function, Program, TextFunctionProgramConverter, SecureEvaluator, SampleTrimmer
 )
+from ...tools.llm.llm_api_https import LLMApiError
 from ...tools.profiler import ProfilerBase
 
 
@@ -102,6 +103,7 @@ class ReEvo:
 
         # statistics
         self._tot_sample_nums = 0
+        self._llm_api_failed = False
 
         # multi-thread executor for evaluation
         assert multi_thread_or_process_eval in ['thread', 'process']
@@ -157,7 +159,7 @@ class ReEvo:
         long_term_reflection_prompts = []
         crx_samples_generated_by_cur_thread = 0
 
-        while self._tot_sample_nums < self._max_sample_nums:
+        while self._tot_sample_nums < self._max_sample_nums and not self._llm_api_failed:
             try:
                 # short term reflection
                 indivs = [self._population.selection() for _ in range(2)]
@@ -231,6 +233,10 @@ class ReEvo:
 
             except KeyboardInterrupt:
                 break
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'ReEvo sampling stopped: {e}')
+                break
             except Exception as e:
                 if self._debug_mode:
                     traceback.print_exc()
@@ -247,13 +253,17 @@ class ReEvo:
         """Let a thread repeat {sample -> evaluate -> register to population}
         to initialize a population.
         """
-        while self._population.generation == 0:
+        while self._population.generation == 0 and not self._llm_api_failed:
             try:
                 # get a new func using i1
                 prompt = ReEvoPrompt.get_pop_init_prompt(self._task_description_str, self._function_to_evolve)
                 if self._debug_mode:
                     print(f'Init Prompt: {prompt}')
                 self._sample_evaluate_register(prompt)
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'ReEvo initialization stopped: {e}')
+                break
             except Exception:
                 if self._debug_mode:
                     traceback.print_exc()
@@ -278,6 +288,19 @@ class ReEvo:
         if not self._resume_mode:
             # do initialization
             self._multi_threaded_sampling(self._iteratively_init_population)
+            if self._llm_api_failed:
+                if self._profiler is not None:
+                    self._profiler.finish()
+                self._sampler.llm.close()
+                return
+            if len(self._population) < 2:
+                print(
+                    'The search is terminated since ReEvo unable to obtain enough feasible algorithms during initialization. '
+                    'Please check your evaluation implementation and LLM implementation.')
+                if self._profiler is not None:
+                    self._profiler.finish()
+                self._sampler.llm.close()
+                return
 
         # evolutionary search
         self._multi_threaded_sampling(self._iteratively_ga_evolve)

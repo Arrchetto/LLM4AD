@@ -35,6 +35,7 @@ from typing import Literal, Optional
 
 from .profiler import HillClimbProfiler
 from ...base import *
+from ...tools.llm.llm_api_https import LLMApiError
 
 
 class HillClimb:
@@ -88,6 +89,7 @@ class HillClimb:
 
         # statistics
         self._tot_sample_nums = 0
+        self._llm_api_failed = False
         self._best_function_found = self._function_to_evolve  # set to the template function at the beginning
 
         # multi-thread executor for evaluation
@@ -192,7 +194,8 @@ class HillClimb:
     #         pass
 
     def _sample_evaluate_register(self):
-        while (self._max_sample_nums is None) or (self._tot_sample_nums < self._max_sample_nums):
+        while not self._llm_api_failed and (
+                (self._max_sample_nums is None) or (self._tot_sample_nums < self._max_sample_nums)):
             try:
                 # do sample
                 prompt_content = self._get_prompt()
@@ -235,6 +238,10 @@ class HillClimb:
                 self._tot_sample_nums += 1
 
             except KeyboardInterrupt:
+                break
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'HillClimb sampling stopped: {e}')
                 break
             except Exception as e:
                 if self._debug_mode:

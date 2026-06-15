@@ -34,6 +34,7 @@ from typing import Optional, Literal
 
 from .profiler import RandSampleProfiler
 from ...base import *
+from ...tools.llm.llm_api_https import LLMApiError
 
 
 class RandSample:
@@ -87,6 +88,7 @@ class RandSample:
 
         # statistics
         self._tot_sample_nums = 0
+        self._llm_api_failed = False
 
         # multi-thread executor for evaluation
         assert multi_thread_or_process_eval in ['thread', 'process']
@@ -121,7 +123,8 @@ class RandSample:
         return '\n'.join([str(template), str(func_to_be_complete)])
 
     def _sample_evaluate_register(self):
-        while (self._max_sample_nums is None) or (self._tot_sample_nums < self._max_sample_nums):
+        while not self._llm_api_failed and (
+                (self._max_sample_nums is None) or (self._tot_sample_nums < self._max_sample_nums)):
             try:
                 # do sample
                 draw_sample_start = time.time()
@@ -161,6 +164,10 @@ class RandSample:
                     # update
                     self._tot_sample_nums += 1
             except KeyboardInterrupt:
+                break
+            except LLMApiError as e:
+                self._llm_api_failed = True
+                print(f'RandSample sampling stopped: {e}')
                 break
             except Exception as e:
                 if self._debug_mode:
