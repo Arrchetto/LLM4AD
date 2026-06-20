@@ -40,6 +40,9 @@ def generate_evaluator(for_instance: Evaluation):
         executable = local_ns[solution.name]
         try:
             score = for_instance.evaluate(executable)
+            if score is None:
+                raise ValueError("Evaluation returned an invalid score: None")
+            score = float(score)
             solution.set_scores(
                 score,
                 f"The average distance of this heursitic is {score}.",

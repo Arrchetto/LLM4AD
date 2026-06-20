@@ -28,6 +28,15 @@ import inspect
 import llm4ad
 
 
+def _resolve_llm_class(method_name: str, llm_name: str, default_class):
+    """Return the LLM client required by a method-specific interface."""
+    if method_name == 'LLaMEA' and llm_name == 'HttpsApi':
+        from llm4ad.method.llamea.llamea_llm import LlameaLLM
+
+        return LlameaLLM
+    return default_class
+
+
 # Dynamically import all usable classes from the 'llm4ad' package
 for module in [llm4ad.tools.llm, llm4ad.tools.profiler, llm4ad.task, llm4ad.method]:
     globals().update({name: obj for name, obj in vars(module).items() if inspect.isclass(obj)})
@@ -82,7 +91,11 @@ def main_gui(llm: dict,
         """
 
     profiler_case = globals()[profiler['name']]
-    llm_case = globals()[llm['name']]
+    llm_case = _resolve_llm_class(
+        method_name=method['name'],
+        llm_name=llm['name'],
+        default_class=globals()[llm['name']],
+    )
     method_case = globals()[method['name']]
     eval_case = globals()[evaluation['name']]
 
