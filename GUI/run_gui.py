@@ -284,6 +284,24 @@ def get_required_parameters(path):
     return required_parameters, value_type, default_value
 
 
+def _convert_parameter_value(raw_value, value_type):
+    """Convert a GUI entry string using the type inferred from YAML."""
+    if value_type == "<class 'int'>":
+        return int(raw_value)
+    if value_type == "<class 'float'>":
+        return float(raw_value)
+    if value_type == "<class 'bool'>":
+        normalized = raw_value.strip().lower()
+        if normalized == "true":
+            return True
+        if normalized == "false":
+            return False
+        raise ValueError(
+            f"Invalid boolean value {raw_value!r}; use true or false."
+        )
+    return raw_value
+
+
 def clear_algo_param_frame():
     global method_para_entry_list
     global method_para_value_type_list
@@ -389,16 +407,18 @@ def return_para():
         llm_para[llm_para_value_name_list[i]] = llm_para_entry_list[i].get()
 
     for i in range(len(method_para_entry_list)):
-        method_para[method_para_value_name_list[i]] = method_para_entry_list[i].get()
-        if method_para_value_type_list[i] == '<class \'int\'>':
-            method_para[method_para_value_name_list[i]] = int(method_para_entry_list[i].get())
+        method_para[method_para_value_name_list[i]] = _convert_parameter_value(
+            method_para_entry_list[i].get(),
+            method_para_value_type_list[i],
+        )
 
     method_para['num_samplers'] = method_para['num_evaluators']
 
     for i in range(len(problem_para_entry_list)):
-        problem_para[problem_para_value_name_list[i]] = problem_para_entry_list[i].get()
-        if problem_para_value_type_list[i] == '<class \'int\'>':
-            problem_para[problem_para_value_name_list[i]] = int(problem_para_entry_list[i].get())
+        problem_para[problem_para_value_name_list[i]] = _convert_parameter_value(
+            problem_para_entry_list[i].get(),
+            problem_para_value_type_list[i],
+        )
 
     ####################
 

@@ -1,7 +1,34 @@
 from llamea import Solution, prepare_namespace
+from llm4ad.base import Function, TextFunctionProgramConverter
 from llm4ad.base.evaluate import Evaluation
 
-def generate_evaluator(for_instance: Evaluation):
+
+def _register_with_profiler(solution: Solution, profiler, gui_score) -> None:
+    """Publish a LLaMEA candidate through LLM4AD's GUI profiler pipeline."""
+    if profiler is None:
+        return
+
+    program = TextFunctionProgramConverter.text_to_program(solution.code)
+    function = None
+    if program is not None:
+        try:
+            function = program.get_function(solution.name)
+        except ValueError:
+            function = None
+
+    if function is None:
+        function = Function(
+            name=solution.name or "invalid_candidate",
+            args="",
+            body="    pass",
+        )
+
+    function.score = gui_score
+    function.operator = solution.operator or "LLaMEA"
+    profiler.register_function(function, program=solution.code)
+
+
+def generate_evaluator(for_instance: Evaluation, profiler=None):
     """A LLaMEA instance works on llamea.Solution object, this generator
     takes the instance of evaluation, that have evaluate member mapping 
     Callable -> float, and returns a function that takes that `float` value 
@@ -36,6 +63,7 @@ def generate_evaluator(for_instance: Evaluation):
                 (possible_issue if possible_issue else "") + f". Exec block failed to execute.",
                 e
             )
+            _register_with_profiler(solution, profiler, None)
             return solution
         executable = local_ns[solution.name]
         try:
@@ -48,6 +76,7 @@ def generate_evaluator(for_instance: Evaluation):
                 f"The average distance of this heursitic is {score}.",
                 None
             )
+            _register_with_profiler(solution, profiler, score)
             return solution
         except Exception as e:
             solution.set_scores(
@@ -55,5 +84,6 @@ def generate_evaluator(for_instance: Evaluation):
                 f"Code failed to execute {e}.",
                 e
             )
+            _register_with_profiler(solution, profiler, None)
             return solution
     return evaluator

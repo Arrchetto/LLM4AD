@@ -1,5 +1,7 @@
 name: LLaMEA
 max_sample_nums: 20
-samples_per_prompt: 4
-num_samplers: 4
+n_parents: 5
+n_offsprings: 5
 num_evaluators: 4
+eval_timeout: 30
+elitism: true

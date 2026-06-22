@@ -50,7 +50,8 @@ class LLaMEA(LLaMEA_Algorithm):
             max_sample_nums: int | None = None,
             samples_per_prompt: int | None = None,
             num_samplers: int | None = None,
-            num_evaluators: int | None = None,
+            num_evaluators: int = 4,
+            eval_timeout: int = 30,
             parallel_backend: str = "threading",
             **kwargs
     ):
@@ -69,23 +70,39 @@ class LLaMEA(LLaMEA_Algorithm):
             example_prompt: Example propmt is llm4ad.tasks.*.template.template_program for solving a problem,
             minimisation: Flag to define direction of optimality.
             elitism: A bool flag to run algorithm in (λ + µ) if set True, else (λ , µ).
-            max_sample_nums: Not used by LLaMEA, accepted for GUI compatibility.
+            max_sample_nums: Total LLaMEA candidate budget supplied by the GUI.
             samples_per_prompt: Not used by LLaMEA, accepted for GUI compatibility.
             num_samplers: Not used by LLaMEA, accepted for GUI compatibility.
             num_evaluators: Number of parallel evaluation workers (mapped to max_workers).
+            eval_timeout: Maximum seconds allowed for one candidate evaluation.
             parallel_backend: Joblib backend. Threading avoids pickling the LLaMEA logger
                 and is appropriate for concurrent LLM API requests.
         """
+        positive_parameters = {
+            "n_parents": n_parents,
+            "n_offsprings": n_offsprings,
+            "num_evaluators": num_evaluators,
+            "eval_timeout": eval_timeout,
+        }
+        if max_sample_nums is not None:
+            positive_parameters["max_sample_nums"] = max_sample_nums
+        for parameter_name, parameter_value in positive_parameters.items():
+            if parameter_value is None or parameter_value <= 0:
+                raise ValueError(f"{parameter_name} must be a positive integer.")
+        if max_sample_nums is not None and max_sample_nums < n_parents:
+            raise ValueError("max_sample_nums must be greater than or equal to n_parents.")
+
         if not task_prompt:
             task_prompt = evaluation.task_description
         if example_prompt is None:
             example_prompt = str(evaluation.template_program)
 
-        evaluation_function = generate_evaluator(evaluation)
+        budget = max_sample_nums if max_sample_nums is not None else iterations
+        evaluation_function = generate_evaluator(evaluation, profiler=profiler)
         super().__init__(
             f=evaluation_function,
             llm=llm,
-            budget=iterations,
+            budget=budget,
             n_offspring=n_offsprings,
             n_parents=n_parents,
             role_prompt=role_prompt,
@@ -94,6 +111,7 @@ class LLaMEA(LLaMEA_Algorithm):
             minimization=minimization,
             elitism=elitism,
             max_workers=num_evaluators or 10,
+            eval_timeout=eval_timeout,
             parallel_backend=parallel_backend,
             **kwargs
         )
@@ -102,3 +120,5 @@ class LLaMEA(LLaMEA_Algorithm):
         self.evaluator = evaluation
         self.profiler = profiler
         self.sampler = LLaMEASampler(llm)
+        if profiler is not None:
+            profiler.record_parameters(llm, evaluation, self)
