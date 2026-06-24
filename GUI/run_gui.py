@@ -18,6 +18,7 @@
 # --------------------------------------------------------------------------
 
 import os
+import shutil
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
@@ -31,12 +32,15 @@ TASK_DIR = os.path.join(REPO_ROOT, 'llm4ad', 'task')
 sys.path.append(REPO_ROOT)
 
 import time
+import csv
+import math
 from datetime import datetime
 import pytz
 import tkinter as tk
 from tkinter import ttk as tkttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 import numpy as np
 import json
 import webbrowser
@@ -62,6 +66,9 @@ thread1 = None
 
 stop_thread = False
 have_stop_thread = False
+monitor_sample_count = 0
+monitor_max_sample_nums = 0
+monitor_finalized = True
 
 method_para_entry_list = []
 method_para_value_type_list = []
@@ -76,8 +83,9 @@ problem_para_value_name_list = []
 
 llm_para_entry_list = []
 llm_para_value_name_list = ['name', 'host', 'key', 'model']
-llm_para_default_value_list = ['HttpsApi', '', '', '']
-llm_para_placeholder_list = ['HttpsApi', 'api.bltcy.top', 'sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'gpt-4o-mini']
+llm_para_default_value_list = ['HttpsApi', 'yunwu.ai', '', 'gpt-4o-mini']
+llm_para_placeholder_list = ['HttpsApi', 'yunwu.ai', 'sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'gpt-4o-mini']
+formal_save_var = None
 
 default_method = 'eoh'
 default_problem = ['admissible_set', 'car_mountain', 'bactgrow']
@@ -302,6 +310,24 @@ def _convert_parameter_value(raw_value, value_type):
     return raw_value
 
 
+def _build_method_log_folder(
+        method_name,
+        problem_name,
+        process_start_time,
+        formal_save=True):
+    """Build the profiler directory under a lowercase method folder."""
+    method_folder = str(method_name).strip().lower()
+    run_folder = (
+        process_start_time.strftime("%Y%m%d_%H%M%S")
+        + f"_{problem_name}_{method_name}"
+    )
+    path_parts = [GUI_DIR, "logs", method_folder]
+    if not formal_save:
+        path_parts.append("test")
+    path_parts.append(run_folder)
+    return os.path.join(*path_parts)
+
+
 def clear_algo_param_frame():
     global method_para_entry_list
     global method_para_value_type_list
@@ -374,10 +400,9 @@ def on_plot_button_click():
         process1 = multiprocessing.Process(target=main_gui, args=(llm_para, method_para, problem_para, profiler_para))
         process1.start()
 
-        thread1 = threading.Thread(target=get_results, args=(profiler_para['log_dir'], method_para['max_sample_nums'],), daemon=True)
-        thread1.start()
-
         log_dir = profiler_para['log_dir']
+        thread1 = None
+        start_result_monitor(log_dir, method_para['max_sample_nums'])
 
         plot_button['state'] = tk.DISABLED
         stop_button['state'] = tk.NORMAL
@@ -427,10 +452,11 @@ def return_para():
     temp_str1 = problem_para['name']
     temp_str2 = method_para['name']
     process_start_time = datetime.now(pytz.timezone("Asia/Shanghai"))
-    log_folder = os.path.join(
-        GUI_DIR,
-        'logs',
-        process_start_time.strftime("%Y%m%d_%H%M%S") + f'_{temp_str1}' + f'_{temp_str2}'
+    log_folder = _build_method_log_folder(
+        temp_str2,
+        temp_str1,
+        process_start_time,
+        formal_save=formal_save_var.get() if formal_save_var is not None else True,
     )
     profiler_para['log_dir'] = log_folder
 
@@ -500,37 +526,225 @@ def init_fig(max_sample_nums):
     canvas = FigureCanvasTkAgg(figures, master=plot_frame)
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-def get_results(log_dir, max_sample_nums):
-    global figures
-    global stop_thread
+def get_available_sample_count(run_log_dir):
+    """Return the number of profiler samples currently persisted on disk."""
+    samples_dir = os.path.join(run_log_dir, "samples")
+    if not os.path.isdir(samples_dir):
+        return 0
+
+    count = 0
+    for filename in os.listdir(samples_dir):
+        if (
+            not filename.startswith("samples_")
+            or not filename.endswith(".json")
+            or filename == "samples_best.json"
+        ):
+            continue
+        try:
+            with open(
+                os.path.join(samples_dir, filename),
+                encoding="utf-8",
+            ) as file:
+                count += len(json.load(file))
+        except (OSError, json.JSONDecodeError, TypeError):
+            continue
+    return count
+
+
+def schedule_result_poll(delay_ms=500):
+    """Schedule result polling on Tkinter's main event loop."""
+    app_root = globals().get("root")
+    if app_root is not None:
+        app_root.after(delay_ms, poll_results)
+
+
+def start_result_monitor(run_log_dir, max_sample_nums):
+    """Start a main-thread result monitor for the current experiment."""
+    global log_dir
+    global monitor_sample_count
+    global monitor_max_sample_nums
+    global monitor_finalized
     global have_stop_thread
-    index = 1
 
-    while (not stop_thread) and (not check_finish(log_dir, index, max_sample_nums)) and (not except_error()):
-        time.sleep(0.5)
-        new = check(index, log_dir)
-        if new:
-            try:
-                fig, alg, best_obj = plot_fig(index, log_dir, max_sample_nums)
-            except:
-                continue
-            display_plot(index - 1)
-            if alg is not None:
-                display_alg(alg)
-            objective_label['text'] = f'Current best objective:{best_obj}'
-            index += 1
+    log_dir = run_log_dir
+    monitor_sample_count = 0
+    monitor_max_sample_nums = max_sample_nums
+    monitor_finalized = False
+    have_stop_thread = False
+    schedule_result_poll(delay_ms=0)
 
-    if not stop_thread:
-        right_frame_label['text'] = 'Finished'
-        # doc_button['state'] = tk.NORMAL
+
+def _refresh_results_to_latest():
+    """Refresh the live GUI once using every sample currently on disk."""
+    global monitor_sample_count
+
+    available_count = get_available_sample_count(log_dir)
+    if available_count <= monitor_sample_count:
+        return
+
+    _, algorithm, best_objective = plot_fig(
+        available_count,
+        log_dir,
+        monitor_max_sample_nums,
+    )
+    display_plot(available_count - 1)
+    if algorithm is not None:
+        display_alg(algorithm)
+    objective_label["text"] = f"Current best objective:{best_objective}"
+    monitor_sample_count = available_count
+
+
+def finalize_result_monitor():
+    """Perform the final refresh and export exactly once."""
+    global monitor_finalized
+    global have_stop_thread
+
+    if monitor_finalized:
+        return
+
+    try:
+        _refresh_results_to_latest()
+    except Exception as error:
+        print(f"Failed to perform final GUI refresh: {error}")
+
+    try:
+        export_convergence_artifacts(log_dir)
+    except Exception as error:
+        print(f"Failed to export convergence artifacts: {error}")
 
     if except_error():
         tk.messagebox.showerror("Error", "Except Error. Please check the terminal.")
-        right_frame_label['text'] = 'Error'
+        right_frame_label["text"] = "Error"
+    elif stop_thread:
+        right_frame_label["text"] = "Stopped"
+    else:
+        right_frame_label["text"] = "Finished"
 
+    monitor_finalized = True
     have_stop_thread = True
-    plot_button['state'] = tk.NORMAL
-    stop_button['state'] = tk.DISABLED
+    plot_button["state"] = tk.NORMAL
+    stop_button["state"] = tk.DISABLED
+
+
+def poll_results():
+    """Poll persisted results and update Tk widgets only on the main thread."""
+    if monitor_finalized:
+        return
+
+    try:
+        _refresh_results_to_latest()
+    except Exception as error:
+        print(f"Failed to refresh GUI results: {error}")
+
+    process_finished = process1 is not None and not process1.is_alive()
+    if stop_thread or process_finished:
+        finalize_result_monitor()
+        return
+
+    schedule_result_poll(delay_ms=500)
+
+
+def export_convergence_artifacts(log_dir):
+    """Save cumulative best fitness as CSV data and a PNG convergence plot."""
+    samples_dir = os.path.join(log_dir, "samples")
+    if not os.path.isdir(samples_dir):
+        return False
+
+    sample_files = [
+        filename
+        for filename in os.listdir(samples_dir)
+        if filename.startswith("samples_")
+        and filename.endswith(".json")
+        and filename != "samples_best.json"
+    ]
+    if not sample_files:
+        return False
+
+    def sample_file_start(filename):
+        try:
+            return int(filename.removeprefix("samples_").split("~", 1)[0])
+        except (TypeError, ValueError):
+            return float("inf")
+
+    samples = []
+    for filename in sorted(sample_files, key=sample_file_start):
+        path = os.path.join(samples_dir, filename)
+        with open(path, encoding="utf-8") as file:
+            file_samples = json.load(file)
+        samples.extend(file_samples)
+
+    if not samples:
+        return False
+
+    samples.sort(key=lambda sample: int(sample.get("sample_order", 0)))
+    rows = []
+    best_fitness = None
+    for fallback_order, sample in enumerate(samples, start=1):
+        sample_order = int(sample.get("sample_order", fallback_order))
+        score = sample.get("score")
+        valid_score = (
+            isinstance(score, (int, float))
+            and not isinstance(score, bool)
+            and math.isfinite(float(score))
+        )
+        fitness = float(score) if valid_score else None
+        if fitness is not None and (
+            best_fitness is None or fitness > best_fitness
+        ):
+            best_fitness = fitness
+        rows.append(
+            {
+                "sample_order": sample_order,
+                "fitness": fitness,
+                "best_fitness": best_fitness,
+            }
+        )
+
+    csv_path = os.path.join(log_dir, "convergence_data.csv")
+    with open(csv_path, "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=("sample_order", "fitness", "best_fitness"),
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+    figure = Figure(figsize=(8, 5), dpi=150)
+    axis = figure.add_subplot(111)
+    valid_rows = [row for row in rows if row["best_fitness"] is not None]
+    if valid_rows:
+        axis.plot(
+            [row["sample_order"] for row in valid_rows],
+            [row["best_fitness"] for row in valid_rows],
+            color="tab:blue",
+            linewidth=1.8,
+        )
+    else:
+        axis.text(
+            0.5,
+            0.5,
+            "No valid fitness values",
+            ha="center",
+            va="center",
+            transform=axis.transAxes,
+        )
+    axis.set_title("Convergence Curve")
+    axis.set_xlabel("Samples")
+    axis.set_ylabel("Best Fitness")
+    axis.grid(True, alpha=0.3)
+    figure.tight_layout()
+    png_path = os.path.join(log_dir, "convergence_curve.png")
+    figure.savefig(png_path)
+
+    marker_path = os.path.join(log_dir, "llamea_output_dir.txt")
+    if os.path.isfile(marker_path):
+        with open(marker_path, encoding="utf-8") as file:
+            llamea_log_dir = file.read().strip()
+        if llamea_log_dir and os.path.isdir(llamea_log_dir):
+            shutil.copy2(csv_path, os.path.join(llamea_log_dir, "convergence_data.csv"))
+            shutil.copy2(png_path, os.path.join(llamea_log_dir, "convergence_curve.png"))
+    return True
+
 
 def plot_fig(index, log_dir, max_sample_nums):
     global figures
@@ -648,15 +862,12 @@ def check(index, log_dir):
 
 
 def stop_run_thread():
-    thread_stop = threading.Thread(target=stop_run)
-    thread_stop.start()
+    stop_run()
 
 def stop_run():
     global stop_thread
     global process1
-    global have_stop_thread
 
-    # doc_button['state'] = tk.DISABLED
     stop_button['state'] = tk.DISABLED
     stop_thread = True
     if process1 is not None:
@@ -665,14 +876,15 @@ def stop_run():
                 process1.terminate()
             except:
                 pass
-    while (thread1 is not None) and (have_stop_thread is False):
-        time.sleep(0.5)
-        _ = 'stop'
+    if not monitor_finalized:
+        schedule_result_poll(delay_ms=0)
     plot_button['state'] = tk.NORMAL
 
 
 def exit_run():
-    stop_run_thread()
+    stop_run()
+    if not monitor_finalized:
+        finalize_result_monitor()
     root.destroy()
     sys.exit(0)
 
@@ -741,16 +953,12 @@ if __name__ == '__main__':
     llm_frame.grid_columnconfigure(0, weight=1)
     llm_frame.grid_columnconfigure(1, weight=1)
 
-    with_default_parameter = False
-    if with_default_parameter:
-        for i in range(len(llm_para_value_name_list)):
+    for i, default_value in enumerate(llm_para_default_value_list):
+        if default_value:
             llm_para_entry_list[i].delete(0, 'end')
             llm_para_entry_list[i].configure(foreground=llm_para_entry_list[i].default_fg_color)
-            llm_para_entry_list[i].insert(0, str(llm_para_default_value_list[i]))
-    else:
-        llm_para_entry_list[0].delete(0, 'end')
-        llm_para_entry_list[0].configure(foreground=llm_para_entry_list[0].default_fg_color)
-        llm_para_entry_list[0].insert(0, str(llm_para_default_value_list[0]))
+            llm_para_entry_list[i].insert(0, str(default_value))
+            llm_para_entry_list[i].have_content = True
 
     ############
 
@@ -805,6 +1013,15 @@ if __name__ == '__main__':
     problem_type_select()
 
     ############
+
+    formal_save_var = tk.BooleanVar(value=True)
+    save_checkbox = ttk.Checkbutton(
+        left_frame,
+        text="正式保存",
+        variable=formal_save_var,
+        bootstyle="success-round-toggle",
+    )
+    save_checkbox.pack(side='left', padx=5, pady=20)
 
     plot_button = ttk.Button(left_frame, text="Run", command=on_plot_button_click, width=12, bootstyle="primary-outline", state=tk.NORMAL)
     plot_button.pack(side='left', pady=20, expand=True)

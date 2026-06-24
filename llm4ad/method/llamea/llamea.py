@@ -1,5 +1,9 @@
+from decimal import Decimal
+from fractions import Fraction
+import math
 import os
 import shutil
+from numbers import Real
 
 from llamea import LLaMEA as LLaMEA_Algorithm
 from ...base import LLM
@@ -8,6 +12,21 @@ from .evaluation import generate_evaluator
 from .sampler import LLaMEASampler
 
 from llm4ad.base import Evaluation
+
+
+def _is_finite_scalar_fitness(value) -> bool:
+    if isinstance(value, bool):
+        return False
+    if isinstance(value, Decimal):
+        return value.is_finite()
+    if isinstance(value, Fraction):
+        return True
+    if not isinstance(value, Real):
+        return False
+    try:
+        return math.isfinite(value)
+    except (TypeError, ValueError, OverflowError):
+        return False
 
 
 def _relocate_llamea_log_dir(logger, profiler) -> None:
@@ -20,8 +39,18 @@ def _relocate_llamea_log_dir(logger, profiler) -> None:
     if not profiler_log_dir or not source_dir:
         return
 
-    gui_logs_dir = os.path.dirname(os.path.abspath(profiler_log_dir))
-    target_parent = os.path.join(gui_logs_dir, "llamea")
+    profiler_parent = os.path.dirname(os.path.abspath(profiler_log_dir))
+    if (
+        os.path.basename(profiler_parent).lower() == "llamea"
+        or (
+            os.path.basename(profiler_parent).lower() == "test"
+            and os.path.basename(os.path.dirname(profiler_parent)).lower()
+            == "llamea"
+        )
+    ):
+        target_parent = profiler_parent
+    else:
+        target_parent = os.path.join(profiler_parent, "llamea")
     target_dir = os.path.join(target_parent, os.path.basename(source_dir))
 
     if os.path.abspath(source_dir) == os.path.abspath(target_dir):
@@ -30,6 +59,22 @@ def _relocate_llamea_log_dir(logger, profiler) -> None:
     os.makedirs(target_parent, exist_ok=True)
     shutil.move(source_dir, target_dir)
     logger.dirname = target_dir
+
+
+def _write_llamea_log_dir_marker(logger, profiler) -> None:
+    """Link the GUI profiler run directory to its LLaMEA experiment directory."""
+    if logger is None or profiler is None:
+        return
+
+    profiler_log_dir = getattr(profiler, "_log_dir", None)
+    llamea_log_dir = getattr(logger, "dirname", None)
+    if not profiler_log_dir or not llamea_log_dir:
+        return
+
+    os.makedirs(profiler_log_dir, exist_ok=True)
+    marker_path = os.path.join(profiler_log_dir, "llamea_output_dir.txt")
+    with open(marker_path, "w", encoding="utf-8") as file:
+        file.write(os.path.abspath(llamea_log_dir))
 
 
 class LLaMEA(LLaMEA_Algorithm):
@@ -122,3 +167,25 @@ class LLaMEA(LLaMEA_Algorithm):
         self.sampler = LLaMEASampler(llm)
         if profiler is not None:
             profiler.record_parameters(llm, evaluation, self)
+            _write_llamea_log_dir_marker(
+                getattr(self, "logger", None),
+                profiler,
+            )
+
+    def selection(self, parents, offspring):
+        if not (
+            self.n_parents == 1
+            and self.n_offspring == 1
+            and self.elitism is False
+            and self.multi_objective is False
+            and self.niching is None
+            and len(parents) == 1
+            and len(offspring) == 1
+        ):
+            return super().selection(parents, offspring)
+
+        return (
+            offspring
+            if _is_finite_scalar_fitness(offspring[0].fitness)
+            else parents
+        )
