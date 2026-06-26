@@ -18,7 +18,145 @@ class _InvalidEvaluation:
         return None
 
 
+class _ClassEvaluation:
+    candidate_type = "class"
+    candidate_name = "OrienteeringOptimizer"
+    candidate_call_signature = ("instance",)
+    template_program = (
+        "class OrienteeringOptimizer:\n"
+        "    def __init__(self):\n"
+        "        pass\n\n"
+        "    def __call__(self, instance):\n"
+        "        return [0, 0]\n"
+    )
+
+    def __init__(self):
+        self.received_class = None
+
+    def evaluate(self, optimizer_class):
+        self.received_class = optimizer_class
+        return 8.5
+
+
 class LlameaEvaluationAdapterTest(unittest.TestCase):
+    def test_class_mode_loads_expected_optimizer_class(self):
+        evaluation = _ClassEvaluation()
+        code = (
+            "class OrienteeringOptimizer:\n"
+            "    def __init__(self):\n"
+            "        self.label = 'candidate'\n\n"
+            "    def __call__(self, instance):\n"
+            "        return [instance['start_node'], instance['end_node']]\n"
+        )
+        solution = Solution(name="OrienteeringOptimizer", code=code)
+
+        evaluated = generate_evaluator(evaluation)(solution)
+
+        self.assertEqual(evaluated.fitness, 8.5)
+        self.assertIn("fitness", evaluated.feedback.lower())
+        self.assertIsNotNone(evaluation.received_class)
+        optimizer = evaluation.received_class()
+        self.assertEqual(optimizer.label, "candidate")
+
+    def test_class_mode_rejects_missing_expected_class(self):
+        evaluation = _ClassEvaluation()
+        solution = Solution(
+            name="WrongOptimizer",
+            code=(
+                "class WrongOptimizer:\n"
+                "    def __init__(self):\n"
+                "        pass\n\n"
+                "    def __call__(self, instance):\n"
+                "        return [0, 0]\n"
+            ),
+        )
+
+        evaluated = generate_evaluator(evaluation)(solution)
+
+        self.assertEqual(evaluated.fitness, float("-inf"))
+        self.assertIn("OrienteeringOptimizer", evaluated.feedback)
+        self.assertIsNone(evaluation.received_class)
+
+    def test_class_mode_rejects_constructor_arguments(self):
+        evaluation = _ClassEvaluation()
+        solution = Solution(
+            name="OrienteeringOptimizer",
+            code=(
+                "class OrienteeringOptimizer:\n"
+                "    def __init__(self, required):\n"
+                "        self.required = required\n\n"
+                "    def __call__(self, instance):\n"
+                "        return [0, 0]\n"
+            ),
+        )
+
+        evaluated = generate_evaluator(evaluation)(solution)
+
+        self.assertEqual(evaluated.fitness, float("-inf"))
+        self.assertIn("constructor", evaluated.feedback.lower())
+        self.assertIsNone(evaluation.received_class)
+
+    def test_class_mode_rejects_incorrect_call_signature(self):
+        evaluation = _ClassEvaluation()
+        solution = Solution(
+            name="OrienteeringOptimizer",
+            code=(
+                "class OrienteeringOptimizer:\n"
+                "    def __init__(self):\n"
+                "        pass\n\n"
+                "    def __call__(self, instance, extra):\n"
+                "        return [0, 0]\n"
+            ),
+        )
+
+        evaluated = generate_evaluator(evaluation)(solution)
+
+        self.assertEqual(evaluated.fitness, float("-inf"))
+        self.assertIn("__call__", evaluated.feedback)
+        self.assertIn("signature", evaluated.feedback.lower())
+        self.assertIsNone(evaluation.received_class)
+
+    def test_class_mode_syntax_failure_is_contained(self):
+        evaluation = _ClassEvaluation()
+        solution = Solution(
+            name="OrienteeringOptimizer",
+            code="class OrienteeringOptimizer\n    pass\n",
+        )
+
+        evaluated = generate_evaluator(evaluation)(solution)
+
+        self.assertEqual(evaluated.fitness, float("-inf"))
+        self.assertIn("exec", evaluated.feedback.lower())
+        self.assertIsNone(evaluation.received_class)
+
+    def test_class_mode_profiler_keeps_complete_class_source(self):
+        profiler = Mock()
+        evaluation = _ClassEvaluation()
+        code = (
+            "def route_helper(instance):\n"
+            "    return [instance['start_node'], instance['end_node']]\n\n"
+            "class OrienteeringOptimizer:\n"
+            "    def __init__(self):\n"
+            "        pass\n\n"
+            "    def __call__(self, instance):\n"
+            "        return route_helper(instance)\n"
+        )
+        solution = Solution(name="OrienteeringOptimizer", code=code)
+
+        evaluated = generate_evaluator(
+            evaluation,
+            profiler=profiler,
+        )(solution)
+
+        registered = profiler.register_function.call_args.args[0]
+        self.assertEqual(evaluated.fitness, 8.5)
+        self.assertEqual(registered.name, "OrienteeringOptimizer")
+        self.assertEqual(registered.score, 8.5)
+        self.assertEqual(
+            profiler.register_function.call_args.kwargs["program"],
+            code,
+        )
+
     def test_numpy_array_default_is_treated_as_same_signature(self):
         evaluation = Mock()
         evaluation.template_program = (

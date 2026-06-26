@@ -142,6 +142,15 @@ class LLaMEA(LLaMEA_Algorithm):
         if example_prompt is None:
             example_prompt = str(evaluation.template_program)
 
+        expected_candidate_name = None
+        if getattr(evaluation, "candidate_type", None) == "class":
+            expected_candidate_name = getattr(
+                evaluation,
+                "candidate_name",
+                None,
+            )
+        llm.expected_candidate_name = expected_candidate_name
+
         budget = max_sample_nums if max_sample_nums is not None else iterations
         evaluation_function = generate_evaluator(evaluation, profiler=profiler)
         super().__init__(

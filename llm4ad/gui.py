@@ -37,6 +37,25 @@ def _resolve_llm_class(method_name: str, llm_name: str, default_class):
     return default_class
 
 
+def _validate_method_evaluation_compatibility(
+        method_name: str,
+        evaluation_instance,
+) -> None:
+    """Reject explicitly unsupported method/evaluation combinations."""
+    supported_methods = getattr(
+        evaluation_instance,
+        "supported_methods",
+        None,
+    )
+    if supported_methods and method_name not in supported_methods:
+        evaluation_name = type(evaluation_instance).__name__
+        supported = ", ".join(supported_methods)
+        raise ValueError(
+            f"{evaluation_name} does not support method {method_name}. "
+            f"Supported methods: {supported}."
+        )
+
+
 # Dynamically import all usable classes from the 'llm4ad' package
 for module in [llm4ad.tools.llm, llm4ad.tools.profiler, llm4ad.task, llm4ad.method]:
     globals().update({name: obj for name, obj in vars(module).items() if inspect.isclass(obj)})
@@ -112,6 +131,10 @@ def main_gui(llm: dict,
 
     llm_case = llm_case(**llm_params)
     eval_case = eval_case(**evaluation_params)
+    _validate_method_evaluation_compatibility(
+        method_params["name"],
+        eval_case,
+    )
     method_case = method_case(llm=llm_case,
                               profiler=profiler,
                               evaluation=eval_case,

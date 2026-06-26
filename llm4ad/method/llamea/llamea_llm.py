@@ -141,11 +141,26 @@ class LlameaLLM(HttpsApi):
             print("\t\t Falling back to code replace.")
             code = code_block
 
-        name = re.findall(
-            r"(?:def|class)\s*(\w*).*\:",
-            code,
-            re.IGNORECASE,
-        )[0]
+        expected_candidate_name = getattr(
+            self,
+            "expected_candidate_name",
+            None,
+        )
+        if (
+            expected_candidate_name
+            and re.search(
+                rf"class\s+{re.escape(expected_candidate_name)}\b",
+                code,
+                re.IGNORECASE,
+            )
+        ):
+            name = expected_candidate_name
+        else:
+            name = re.findall(
+                r"(?:def|class)\s*(\w*).*\:",
+                code,
+                re.IGNORECASE,
+            )[0]
         desc = self.extract_algorithm_description(message)
         cs = None
         if HPO and ConfigurationSpace is not None:

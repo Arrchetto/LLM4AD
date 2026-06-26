@@ -15,6 +15,7 @@ from llm4ad.method.llamea.llamea import (
     _relocate_llamea_log_dir,
     _write_llamea_log_dir_marker,
 )
+from llm4ad.method.llamea.llamea_llm import LlameaLLM
 
 
 class _DummyLLM:
@@ -27,6 +28,18 @@ class _DummyLLM:
 class _DummyEvaluation:
     task_description = "task from evaluation"
     template_program = "def candidate():\n    return 0\n"
+
+
+class _DummyClassEvaluation:
+    candidate_type = "class"
+    candidate_name = "OrienteeringOptimizer"
+    candidate_call_signature = ("instance",)
+    task_description = "generate an optimizer class"
+    template_program = (
+        "class OrienteeringOptimizer:\n"
+        "    def __call__(self, instance):\n"
+        "        return [0, 0]\n"
+    )
 
 
 def _solution(fitness):
@@ -47,6 +60,48 @@ def _selection_adapter(*, n_parents=1, n_offspring=1, elitism=False):
 
 
 class LlameaAdapterTest(unittest.TestCase):
+    def test_class_evaluation_configures_expected_candidate_name_on_llm(self):
+        llm = _DummyLLM()
+
+        with patch(
+            "llm4ad.method.llamea.llamea.generate_evaluator",
+            return_value=lambda _: 0.0,
+        ), patch(
+            "llm4ad.method.llamea.llamea.LLaMEA_Algorithm.__init__",
+            return_value=None,
+        ):
+            LLaMEA(llm=llm, evaluation=_DummyClassEvaluation())
+
+        self.assertEqual(
+            llm.expected_candidate_name,
+            "OrienteeringOptimizer",
+        )
+
+    def test_llm_prefers_expected_class_name_over_leading_helper(self):
+        llm = LlameaLLM(
+            host="example.com",
+            key="test-key",
+            model="test-model",
+        )
+        llm.expected_candidate_name = "OrienteeringOptimizer"
+        llm.query = lambda _messages: (
+            "# Description: complete route optimizer\n"
+            "# Code:\n"
+            "```python\n"
+            "def helper(instance):\n"
+            "    return [0, 0]\n\n"
+            "class OrienteeringOptimizer:\n"
+            "    def __init__(self):\n"
+            "        pass\n\n"
+            "    def __call__(self, instance):\n"
+            "        return helper(instance)\n"
+            "```\n"
+        )
+
+        solution = llm.sample_solution([{"role": "user", "content": "go"}])
+
+        self.assertEqual(solution.name, "OrienteeringOptimizer")
+
     def test_comma_one_one_replaces_parent_with_worse_finite_offspring(self):
         method = _selection_adapter()
         parent = _solution(10.0)

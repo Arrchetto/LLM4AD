@@ -79,7 +79,12 @@ def _load_template_signatures(
     return signatures, signature_errors, sole_function_name
 
 
-def _register_with_profiler(solution: Solution, profiler, gui_score) -> None:
+def _register_with_profiler(
+        solution: Solution,
+        profiler,
+        gui_score,
+        candidate_name: str | None = None,
+) -> None:
     """Publish a LLaMEA candidate through LLM4AD's GUI profiler pipeline."""
     if profiler is None:
         return
@@ -94,7 +99,7 @@ def _register_with_profiler(solution: Solution, profiler, gui_score) -> None:
 
     if function is None:
         function = Function(
-            name=solution.name or "invalid_candidate",
+            name=candidate_name or solution.name or "invalid_candidate",
             args="",
             body="    pass",
         )
@@ -104,6 +109,52 @@ def _register_with_profiler(solution: Solution, profiler, gui_score) -> None:
     profiler.register_function(function, program=solution.code)
 
 
+def _required_constructor_parameters(candidate_class: type) -> list[str]:
+    """Return constructor parameters that prevent no-argument construction."""
+    signature = inspect.signature(candidate_class)
+    return [
+        parameter.name
+        for parameter in signature.parameters.values()
+        if parameter.default is inspect.Parameter.empty
+        and parameter.kind not in (
+            inspect.Parameter.VAR_POSITIONAL,
+            inspect.Parameter.VAR_KEYWORD,
+        )
+    ]
+
+
+def _validate_class_call_signature(
+        candidate_class: type,
+        expected_names: tuple[str, ...],
+) -> str | None:
+    """Return an error message when __call__ does not match the contract."""
+    try:
+        signature = inspect.signature(candidate_class.__call__)
+    except Exception as error:
+        return f"Candidate __call__ signature inspection failed: {error}"
+
+    parameters = list(signature.parameters.values())
+    if parameters and parameters[0].name == "self":
+        parameters = parameters[1:]
+
+    actual_names = tuple(parameter.name for parameter in parameters)
+    exact_positional_parameters = all(
+        parameter.kind
+        in (
+            inspect.Parameter.POSITIONAL_ONLY,
+            inspect.Parameter.POSITIONAL_OR_KEYWORD,
+        )
+        and parameter.default is inspect.Parameter.empty
+        for parameter in parameters
+    )
+    if actual_names != expected_names or not exact_positional_parameters:
+        return (
+            "Candidate __call__ signature mismatch: "
+            f"expected {expected_names}, got {actual_names}."
+        )
+    return None
+
+
 def generate_evaluator(for_instance: Evaluation, profiler=None):
     """A LLaMEA instance works on llamea.Solution object, this generator
     takes the instance of evaluation, that have evaluate member mapping 
@@ -111,11 +162,30 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
     to update the `Solution` with appropriate fitness.
     """
 
-    (
-        template_signatures,
-        template_signature_errors,
-        sole_template_function_name,
-    ) = _load_template_signatures(for_instance)
+    candidate_type = (
+        "class"
+        if getattr(for_instance, "candidate_type", None) == "class"
+        else "function"
+    )
+    if candidate_type == "class":
+        candidate_name = getattr(for_instance, "candidate_name", None)
+        candidate_call_signature = tuple(
+            getattr(for_instance, "candidate_call_signature", ())
+        )
+    else:
+        candidate_name = None
+        candidate_call_signature = ()
+
+    if candidate_type == "class":
+        template_signatures = {}
+        template_signature_errors = {}
+        sole_template_function_name = None
+    else:
+        (
+            template_signatures,
+            template_signature_errors,
+            sole_template_function_name,
+        ) = _load_template_signatures(for_instance)
 
     def evaluator(solution: Solution, explogger=None) -> Solution:
         """
@@ -137,7 +207,10 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
         local_ns = {}
         try:
             global_ns, possible_issue = prepare_namespace(code, allowed=['pandas', 'numpy', 'numbas'])
-            exec(code, global_ns, local_ns)
+            if candidate_type == "class":
+                exec(code, global_ns)
+            else:
+                exec(code, global_ns, local_ns)
 
         except Exception as e:
             solution.set_scores(
@@ -145,9 +218,76 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
                 (possible_issue if possible_issue else "") + f". Exec block failed to execute.",
                 e
             )
-            _register_with_profiler(solution, profiler, None)
+            _register_with_profiler(
+                solution,
+                profiler,
+                None,
+                candidate_name=candidate_name,
+            )
             return solution
-        executable = local_ns[solution.name]
+
+        if candidate_type == "class":
+            executable = global_ns.get(candidate_name)
+            if not inspect.isclass(executable):
+                error = ValueError(
+                    f"Candidate must define class {candidate_name}."
+                )
+                solution.set_scores(float("-inf"), str(error), None)
+                _register_with_profiler(
+                    solution,
+                    profiler,
+                    None,
+                    candidate_name=candidate_name,
+                )
+                return solution
+
+            try:
+                required_parameters = _required_constructor_parameters(
+                    executable
+                )
+            except Exception as error:
+                solution.set_scores(
+                    float("-inf"),
+                    f"Candidate constructor inspection failed: {error}",
+                    error,
+                )
+                _register_with_profiler(
+                    solution,
+                    profiler,
+                    None,
+                    candidate_name=candidate_name,
+                )
+                return solution
+
+            if required_parameters:
+                error = ValueError(
+                    "Candidate constructor must accept no arguments; "
+                    f"required parameters: {required_parameters}."
+                )
+                solution.set_scores(float("-inf"), str(error), None)
+                _register_with_profiler(
+                    solution,
+                    profiler,
+                    None,
+                    candidate_name=candidate_name,
+                )
+                return solution
+
+            signature_error = _validate_class_call_signature(
+                executable,
+                candidate_call_signature,
+            )
+            if signature_error is not None:
+                solution.set_scores(float("-inf"), signature_error, None)
+                _register_with_profiler(
+                    solution,
+                    profiler,
+                    None,
+                    candidate_name=candidate_name,
+                )
+                return solution
+        else:
+            executable = local_ns[solution.name]
 
         template_function_name = None
         if (
@@ -199,12 +339,23 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
                 raise ValueError(
                     f"Evaluation returned an invalid score: {score}"
                 )
+            if candidate_type == "class":
+                feedback = f"The optimizer class fitness is {score}."
+            else:
+                feedback = (
+                    f"The average distance of this heursitic is {score}."
+                )
             solution.set_scores(
                 score,
-                f"The average distance of this heursitic is {score}.",
+                feedback,
                 None
             )
-            _register_with_profiler(solution, profiler, score)
+            _register_with_profiler(
+                solution,
+                profiler,
+                score,
+                candidate_name=candidate_name,
+            )
             return solution
         except Exception as e:
             solution.set_scores(
@@ -212,6 +363,11 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
                 f"Code failed to execute {e}.",
                 e
             )
-            _register_with_profiler(solution, profiler, None)
+            _register_with_profiler(
+                solution,
+                profiler,
+                None,
+                candidate_name=candidate_name,
+            )
             return solution
     return evaluator
