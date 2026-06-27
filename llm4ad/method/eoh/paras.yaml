@@ -2,4 +2,5 @@ name: EoH
 max_generations: 10
 max_sample_nums: 20
 pop_size: 4
-num_evaluators: 4
+num_samplers: 1
+num_evaluators: 1

@@ -56,6 +56,15 @@ def _validate_method_evaluation_compatibility(
         )
 
 
+def _constructor_parameters(component_config: dict) -> dict:
+    """Return constructor kwargs without the GUI-only class selector."""
+    return {
+        key: value
+        for key, value in component_config.items()
+        if key != "name"
+    }
+
+
 # Dynamically import all usable classes from the 'llm4ad' package
 for module in [llm4ad.tools.llm, llm4ad.tools.profiler, llm4ad.task, llm4ad.method]:
     globals().update({name: obj for name, obj in vars(module).items() if inspect.isclass(obj)})
@@ -109,9 +118,10 @@ def main_gui(llm: dict,
         main_gui(llm_config, method_config, evaluation_config, profiler_config)
         """
 
+    method_name = method['name']
     profiler_case = globals()[profiler['name']]
     llm_case = _resolve_llm_class(
-        method_name=method['name'],
+        method_name=method_name,
         llm_name=llm['name'],
         default_class=globals()[llm['name']],
     )
@@ -122,17 +132,14 @@ def main_gui(llm: dict,
                              method_name=method['name'],
                              log_dir=profiler['log_dir'], log_style='complex',create_random_path=False, final_log_dir=profiler['log_dir'])
 
-    llm.pop('name')
-
-    # Filter dict to pass only recognized arguments
-    method_params = {key: value for key, value in method.items()}
-    llm_params = {key: value for key, value in llm.items()}
-    evaluation_params = {key: value for key, value in evaluation.items()}
+    method_params = _constructor_parameters(method)
+    llm_params = _constructor_parameters(llm)
+    evaluation_params = _constructor_parameters(evaluation)
 
     llm_case = llm_case(**llm_params)
     eval_case = eval_case(**evaluation_params)
     _validate_method_evaluation_compatibility(
-        method_params["name"],
+        method_name,
         eval_case,
     )
     method_case = method_case(llm=llm_case,

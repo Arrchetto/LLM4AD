@@ -36,6 +36,8 @@ from ...base import Function
 
 class ProfilerBase:
 
+    _SENSITIVE_PARAMETER_NAMES = ("key", "secret", "password", "token")
+
     def __init__(self,
                  log_dir: Optional[str] = None,
                  *,
@@ -261,6 +263,12 @@ class ProfilerBase:
         self._logger_txt.info(f'  - LLM: {llm.__class__.__name__}')
         for attr, value in llm.__dict__.items():
             if attr not in ['_functions']:
+                normalized_attr = attr.strip('_').lower()
+                if any(
+                        sensitive_name in normalized_attr
+                        for sensitive_name in self._SENSITIVE_PARAMETER_NAMES
+                ):
+                    value = '<redacted>'
                 self._logger_txt.info(f'  - {attr}: {value}')
         self._logger_txt.info('====================================================================')
         self._logger_txt.info('Problem Parameters')

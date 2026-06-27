@@ -310,6 +310,34 @@ def _convert_parameter_value(raw_value, value_type):
     return raw_value
 
 
+def _complete_method_parameters(method_parameters):
+    """Preserve explicit sampler concurrency and support legacy GUI configs."""
+    completed = dict(method_parameters)
+    if "num_samplers" not in completed and "num_evaluators" in completed:
+        completed["num_samplers"] = completed["num_evaluators"]
+    return completed
+
+
+def _profiler_name_for_method(method_name):
+    """Use method-specific profiler features where they are required."""
+    if method_name == "EoH":
+        return "EoHProfiler"
+    return "ProfilerBase"
+
+
+def _redact_sensitive_mapping(parameters):
+    """Return a printable copy without credential values."""
+    sensitive_names = ("key", "secret", "password", "token")
+    return {
+        key: (
+            "<redacted>"
+            if any(name in str(key).strip("_").lower() for name in sensitive_names)
+            else value
+        )
+        for key, value in parameters.items()
+    }
+
+
 def _build_method_log_folder(
         method_name,
         problem_name,
@@ -437,7 +465,7 @@ def return_para():
             method_para_value_type_list[i],
         )
 
-    method_para['num_samplers'] = method_para['num_evaluators']
+    method_para = _complete_method_parameters(method_para)
 
     for i in range(len(problem_para_entry_list)):
         problem_para[problem_para_value_name_list[i]] = _convert_parameter_value(
@@ -447,7 +475,7 @@ def return_para():
 
     ####################
 
-    profiler_para['name'] = 'ProfilerBase'
+    profiler_para['name'] = _profiler_name_for_method(method_para['name'])
 
     temp_str1 = problem_para['name']
     temp_str2 = method_para['name']
@@ -462,7 +490,7 @@ def return_para():
 
     ####################
 
-    print(llm_para)
+    print(_redact_sensitive_mapping(llm_para))
     print(method_para)
     print(problem_para)
     print(profiler_para)
