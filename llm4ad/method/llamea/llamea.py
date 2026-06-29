@@ -119,10 +119,23 @@ class LLaMEA(LLaMEA_Algorithm):
             samples_per_prompt: Not used by LLaMEA, accepted for GUI compatibility.
             num_samplers: Not used by LLaMEA, accepted for GUI compatibility.
             num_evaluators: Number of parallel evaluation workers (mapped to max_workers).
-            eval_timeout: Maximum seconds allowed for one candidate evaluation.
+            eval_timeout: Maximum seconds allowed for one candidate evaluation. This is
+                automatically raised to at least the evaluation's ``timeout_seconds`` so
+                that expensive tasks (e.g. 50 TSP instances) are not killed prematurely.
             parallel_backend: Joblib backend. Threading avoids pickling the LLaMEA logger
                 and is appropriate for concurrent LLM API requests.
         """
+        # Coordinate LLaMEA's per-candidate timeout with the evaluation's own
+        # timeout. Tasks such as TSPFullLLaMEAEvaluation evaluate 50 instances
+        # of 100 cities per candidate; the upstream 30s default is often too
+        # short for the algorithms the LLM produces.
+        evaluation_timeout = getattr(evaluation, "timeout_seconds", None)
+        if evaluation_timeout is not None:
+            try:
+                eval_timeout = max(int(eval_timeout), int(evaluation_timeout))
+            except (TypeError, ValueError):
+                pass
+
         positive_parameters = {
             "n_parents": n_parents,
             "n_offsprings": n_offsprings,
