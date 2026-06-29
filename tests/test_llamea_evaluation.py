@@ -1,10 +1,12 @@
 import inspect
 import math
+import time
 import unittest
 from unittest.mock import Mock, patch
 
 from llamea import Solution, prepare_namespace
 
+from llm4ad.base.evaluate import Evaluation
 from llm4ad.method.llamea.evaluation import generate_evaluator
 
 
@@ -16,6 +18,24 @@ class _ValidEvaluation:
 class _InvalidEvaluation:
     def evaluate(self, _callable):
         return None
+
+
+class _TimedEvaluation(Evaluation):
+    def __init__(self):
+        super().__init__(
+            template_program="def candidate():\n    return 12.5\n",
+            task_description="timeout regression fixture",
+            timeout_seconds=0.05,
+            safe_evaluate=True,
+        )
+
+    def evaluate_program(self, program_str, callable_func, **kwargs):
+        del program_str, kwargs
+        return self.evaluate(callable_func)
+
+    def evaluate(self, candidate):
+        time.sleep(0.3)
+        return candidate()
 
 
 class _ClassEvaluation:
@@ -39,6 +59,20 @@ class _ClassEvaluation:
 
 
 class LlameaEvaluationAdapterTest(unittest.TestCase):
+    def test_safe_evaluation_enforces_hard_candidate_timeout(self):
+        solution = Solution(
+            name="candidate",
+            code="def candidate():\n    return 12.5\n",
+        )
+
+        started_at = time.monotonic()
+        evaluated = generate_evaluator(_TimedEvaluation())(solution)
+        elapsed = time.monotonic() - started_at
+
+        self.assertEqual(evaluated.fitness, float("-inf"))
+        self.assertIn("timed out", evaluated.feedback.lower())
+        self.assertLess(elapsed, 0.25)
+
     def test_class_mode_loads_expected_optimizer_class(self):
         evaluation = _ClassEvaluation()
         code = (

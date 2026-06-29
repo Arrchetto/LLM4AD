@@ -1,9 +1,122 @@
 import inspect
 import math
+import multiprocessing
+import sys
 
 from llamea import Solution, prepare_namespace
 from llm4ad.base import Function, TextFunctionProgramConverter
 from llm4ad.base.evaluate import Evaluation
+
+
+class CandidateEvaluationTimeoutError(TimeoutError):
+    """Raised when a LLaMEA candidate exceeds its evaluation budget."""
+
+
+def _candidate_evaluation_timeout(for_instance: Evaluation) -> float | None:
+    """Return the active hard timeout for safe evaluation, if configured."""
+    if getattr(for_instance, "safe_evaluate", None) is not True:
+        return None
+    timeout = getattr(for_instance, "timeout_seconds", None)
+    if isinstance(timeout, bool) or not isinstance(timeout, (int, float)):
+        return None
+    timeout = float(timeout)
+    return timeout if math.isfinite(timeout) and timeout > 0 else None
+
+
+def _candidate_evaluation_worker(
+    result_connection,
+    for_instance: Evaluation,
+    code: str,
+    candidate_type: str,
+    executable_name: str,
+) -> None:
+    """Execute and evaluate candidate source inside an isolated process."""
+    try:
+        global_ns, _ = prepare_namespace(
+            code,
+            allowed=["pandas", "numpy", "numbas"],
+        )
+        local_ns = {}
+        if candidate_type == "class":
+            exec(code, global_ns)
+            executable = global_ns[executable_name]
+        else:
+            exec(code, global_ns, local_ns)
+            executable = local_ns[executable_name]
+        result_connection.send(("success", for_instance.evaluate(executable)))
+    except BaseException as error:
+        result_connection.send(
+            ("error", f"{type(error).__name__}: {error}")
+        )
+    finally:
+        result_connection.close()
+
+
+def _terminate_process(process: multiprocessing.Process) -> None:
+    """Stop a candidate process and wait until no worker remains alive."""
+    if process.is_alive():
+        process.terminate()
+        process.join(timeout=1)
+    if process.is_alive():
+        process.kill()
+        process.join()
+
+
+def _evaluate_with_hard_timeout(
+    for_instance: Evaluation,
+    code: str,
+    executable,
+    candidate_type: str,
+    executable_name: str,
+):
+    """Evaluate directly or in a killable subprocess when safe mode is on."""
+    timeout = _candidate_evaluation_timeout(for_instance)
+    if timeout is None:
+        return for_instance.evaluate(executable)
+
+    fork_proc = getattr(for_instance, "fork_proc", "auto")
+    use_fork = fork_proc is True or (
+        fork_proc == "auto"
+        and (
+            sys.platform.startswith("darwin")
+            or sys.platform.startswith("linux")
+        )
+    )
+    context = multiprocessing.get_context("fork" if use_fork else "spawn")
+    parent_connection, child_connection = context.Pipe(duplex=False)
+    process = context.Process(
+        target=_candidate_evaluation_worker,
+        args=(
+            child_connection,
+            for_instance,
+            code,
+            candidate_type,
+            executable_name,
+        ),
+        daemon=getattr(for_instance, "daemon_eval_process", False),
+    )
+    process.start()
+    child_connection.close()
+    try:
+        if not parent_connection.poll(timeout):
+            _terminate_process(process)
+            raise CandidateEvaluationTimeoutError(
+                f"Candidate evaluation timed out after {timeout:g} seconds"
+            )
+        try:
+            status, payload = parent_connection.recv()
+        except EOFError as error:
+            raise RuntimeError(
+                "Candidate evaluation process exited without a result"
+            ) from error
+        process.join(timeout=1)
+        if status == "error":
+            raise RuntimeError(payload)
+        return payload
+    finally:
+        parent_connection.close()
+        _terminate_process(process)
+        process.close()
 
 
 def _normalized_parameters(callable_object) -> tuple[tuple[object, ...], ...]:
@@ -331,7 +444,17 @@ def generate_evaluator(for_instance: Evaluation, profiler=None):
                 return solution
 
         try:
-            score = for_instance.evaluate(executable)
+            score = _evaluate_with_hard_timeout(
+                for_instance=for_instance,
+                code=code,
+                executable=executable,
+                candidate_type=candidate_type,
+                executable_name=(
+                    candidate_name
+                    if candidate_type == "class"
+                    else solution.name
+                ),
+            )
             if score is None:
                 raise ValueError("Evaluation returned an invalid score: None")
             score = float(score)
