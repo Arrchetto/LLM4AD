@@ -357,13 +357,15 @@ class CVRPFEvaluatorTests(unittest.TestCase):
         converted = TextFunctionProgramConverter.text_to_function(template_program)
         self.assertEqual(converted.name, "solve")
 
-    def test_template_function_documents_runtime_routes_and_fitness_direction(self):
+    def test_template_documents_priority_decoder_contract(self):
         template_text = " ".join(template_program.lower().split())
-        self.assertLessEqual(len(template_program.splitlines()), 38)
+        self.assertLessEqual(len(template_program.splitlines()), 34)
         for required in (
             "30-second",
-            "every customer",
-            "start and end at depot 0",
+            "customer permutation",
+            "exactly once",
+            "exclude depot 0",
+            "capacity decoder",
             "max_vehicles",
             "negative mean",
             "eoh maximizes",
@@ -371,20 +373,21 @@ class CVRPFEvaluatorTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, template_text)
 
-    def test_task_description_states_complete_strict_contract(self):
+    def test_task_description_states_strict_priority_contract(self):
         description = " ".join(task_description.lower().split())
         self.assertLessEqual(len(task_description), 1300)
         for required in (
             "50 training instances",
-            "27",
-            "23",
+            "27 cvrplib a",
+            "23 cvrplib b",
             "distance_matrix",
             "demands",
             "vehicle_capacity",
             "max_vehicles",
             "node 0",
+            "customer permutation",
             "exactly once",
-            "start and end",
+            "deterministic capacity decoder",
             "strict timeout",
             "30 seconds",
             "all algorithm logic",
@@ -394,17 +397,11 @@ class CVRPFEvaluatorTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, description)
 
-    def test_task_description_requires_feasible_grouping_before_route_ordering(self):
+    def test_task_description_is_neutral_about_search_algorithm(self):
         description = " ".join(task_description.lower().split())
-        for required in (
-            "descending-demand best-fit assignment",
-            "do not use sequential route filling",
-            "break/retry loops",
-            "after every customer is assigned",
-            "without changing group membership",
-        ):
-            with self.subTest(required=required):
-                self.assertIn(required, description)
+        for forbidden in ("clarke-wright", "2-opt", "genetic algorithm"):
+            with self.subTest(forbidden=forbidden):
+                self.assertNotIn(forbidden, description)
 
     def test_evaluator_loads_exactly_a_and_b_in_deterministic_order(self):
         instances = self.evaluation.training_instances

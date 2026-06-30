@@ -6,42 +6,41 @@ def solve(
     demands: np.ndarray,
     vehicle_capacity: int,
     max_vehicles: int,
-) -> list[list[int]]:
-    """Return complete CVRP routes within the 30-second evaluation.
+) -> list[int]:
+    """Return a customer permutation within the 30-second evaluation.
 
-    Every customer must occur once. Routes start and end at depot 0, respect
-    vehicle_capacity, and use at most max_vehicles. The evaluator reports
-    negative mean distance; EoH maximizes it. Keep all algorithm logic here.
+    Include every customer exactly once and exclude depot 0. The evaluator's
+    capacity decoder enforces vehicle_capacity and max_vehicles. EoH maximizes
+    negative mean distance, so shorter decoded routes are better.
     """
-    routes = [[] for _ in range(max_vehicles)]
-    loads = [0] * max_vehicles
-    for customer in sorted(range(1, len(demands)), key=lambda i: (-int(demands[i]), i)):
-        demand = int(demands[customer])
-        feasible = [i for i in range(max_vehicles) if loads[i] + demand <= vehicle_capacity]
-        if not feasible:
-            return []
-        vehicle = min(feasible, key=lambda i: (vehicle_capacity - loads[i] - demand, i))
-        routes[vehicle].append(customer)
-        loads[vehicle] += demand
-    return [[0, *route, 0] for route in routes if route]
+    remaining = set(range(1, len(demands)))
+    permutation = []
+    current = 0
+    while remaining:
+        customer = min(
+            remaining,
+            key=lambda node: (float(distance_matrix[current, node]), node),
+        )
+        permutation.append(customer)
+        remaining.remove(customer)
+        current = customer
+    return permutation
 '''
 
 
 task_description = (
-    "Design a complete deterministic CVRP algorithm by implementing only solve"
+    "Design a deterministic CVRP customer-priority algorithm by implementing only solve"
     "(distance_matrix, demands, vehicle_capacity, max_vehicles). Node 0 is the depot. "
-    "Return a two-dimensional Python list of routes; every used route must start and "
-    "end at node 0, every customer 1..n-1 must appear exactly once, every route load "
-    "must not exceed vehicle_capacity, and at most max_vehicles routes may be used. "
-    "Use descending-demand best-fit assignment as the feasibility baseline. Do not use "
-    "sequential route filling followed by break/retry loops. After every customer is "
-    "assigned, optimize route order without changing group membership. "
-    "The evaluator performs strict validation without repair; invalid output, exceptions, "
-    "or timeout invalidate the candidate. It evaluates 50 training instances: 27 CVRPLIB "
-    "A instances and 23 CVRPLIB B instances, under a strict timeout of 30 seconds. Keep "
-    "all algorithm logic inside solve; use NumPy as np and do not use top-level helpers, "
-    "external files, network access, BKS values, or return fitness. EoH maximizes fitness, "
-    "which is the negative mean route distance, so shorter routes are better."
+    "Return a one-dimensional Python customer permutation containing every customer "
+    "1..n-1 exactly once; never include node 0. The evaluator strictly rejects malformed "
+    "permutations, then uses a deterministic capacity decoder to enforce vehicle_capacity "
+    "and max_vehicles and to produce complete routes. It evaluates 50 training instances: "
+    "27 CVRPLIB A instances and 23 CVRPLIB B instances, under a strict timeout of 30 seconds. "
+    "Any invalid output, exception, decoder failure, non-finite value, or timeout invalidates "
+    "the whole candidate. Use bounded polynomial-time work. Keep all algorithm logic inside "
+    "solve; NumPy is available as np. Do not depend on top-level helpers, external files, "
+    "network access, random global state, or BKS values, and do not return fitness. EoH "
+    "maximizes fitness, which is the negative mean decoded route distance, so shorter is better."
 )
 
 
