@@ -518,6 +518,16 @@ def solve(distance_matrix, demands, vehicle_capacity, max_vehicles):
 
 
 class CVRPFIntegrationTests(unittest.TestCase):
+    def test_priority_decoder_is_publicly_reusable(self):
+        from llm4ad.task.optimization import cvrpf
+
+        self.assertIs(
+            cvrpf.decode_customer_permutation, decode_customer_permutation
+        )
+        self.assertIs(
+            cvrpf.validate_customer_permutation, validate_customer_permutation
+        )
+
     def test_dynamic_task_export_and_gui_method_guard(self):
         self.assertIs(task_module.CVRPFEvaluation, CVRPFEvaluation)
         evaluation = CVRPFEvaluation(data_root=DATA_ROOT, safe_evaluate=False)
@@ -542,7 +552,8 @@ class CVRPFIntegrationTests(unittest.TestCase):
     def test_task_has_no_random_generation_smoke_gate_or_p_evaluation(self):
         template_text = (TASK_DIR / "template.py").read_text(encoding="utf-8")
         evaluation_text = (TASK_DIR / "evaluation.py").read_text(encoding="utf-8")
-        combined = template_text + evaluation_text
+        decoder_text = (TASK_DIR / "decoder.py").read_text(encoding="utf-8")
+        combined = template_text + evaluation_text + decoder_text
         for forbidden in (
             "np.random",
             "random.",
