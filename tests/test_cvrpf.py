@@ -321,6 +321,18 @@ class CVRPFEvaluatorTests(unittest.TestCase):
             with self.subTest(required=required):
                 self.assertIn(required, description)
 
+    def test_task_description_requires_feasible_grouping_before_route_ordering(self):
+        description = " ".join(task_description.lower().split())
+        for required in (
+            "assign every customer",
+            "capacity-feasible groups",
+            "reassignment",
+            "only then optimize",
+            "never stop with unassigned customers",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, description)
+
     def test_evaluator_loads_exactly_a_and_b_in_deterministic_order(self):
         instances = self.evaluation.training_instances
         self.assertEqual(len(instances), 50)
