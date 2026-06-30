@@ -15,6 +15,7 @@ from llm4ad.base import SecureEvaluator, TextFunctionProgramConverter
 from llm4ad.gui import _validate_method_evaluation_compatibility
 from llm4ad.task.optimization.cvrpf import CVRPFEvaluation
 from llm4ad.task.optimization.cvrpf.cvrplib import (
+    CVRPInstance,
     build_euc_2d_distance_matrix,
     load_cvrplib_sets,
     load_instance_pair,
@@ -22,6 +23,10 @@ from llm4ad.task.optimization.cvrpf.cvrplib import (
     parse_vrp,
     route_set_cost,
     validate_routes,
+)
+from llm4ad.task.optimization.cvrpf.decoder import (
+    decode_customer_permutation,
+    validate_customer_permutation,
 )
 from llm4ad.task.optimization.cvrpf.template import task_description, template_program
 
@@ -259,6 +264,74 @@ class StrictRouteScoringTests(unittest.TestCase):
         invalid_instance = replace(self.instance, distance_matrix=matrix)
         with self.assertRaisesRegex(ValueError, "finite"):
             route_set_cost(invalid_instance, invalid_instance.best_known_routes)
+
+
+def make_decoder_instance() -> CVRPInstance:
+    coordinates = np.zeros((5, 2), dtype=np.float64)
+    demands = np.array([0, 4, 4, 6, 6], dtype=np.int64)
+    distance_matrix = np.array(
+        [
+            [0, 1, 2, 3, 4],
+            [1, 0, 1, 2, 3],
+            [2, 1, 0, 1, 2],
+            [3, 2, 1, 0, 1],
+            [4, 3, 2, 1, 0],
+        ],
+        dtype=np.int64,
+    )
+    return CVRPInstance(
+        name="Tiny-n5-k2",
+        dataset="test",
+        comment="decoder fixture",
+        dimension=5,
+        capacity=10,
+        max_vehicles=2,
+        edge_weight_type="EUC_2D",
+        coordinates=coordinates,
+        demands=demands,
+        distance_matrix=distance_matrix,
+    )
+
+
+class CustomerPermutationDecoderTests(unittest.TestCase):
+    def setUp(self):
+        self.instance = make_decoder_instance()
+
+    def test_valid_permutation_is_preserved(self):
+        self.assertEqual(
+            validate_customer_permutation(self.instance, [1, 2, 3, 4]),
+            (1, 2, 3, 4),
+        )
+
+    def test_invalid_permutations_are_rejected_without_customer_repair(self):
+        invalid = (
+            [],
+            (1, 2, 3, 4),
+            np.array([1, 2, 3, 4]),
+            [0, 1, 2, 3],
+            [1, 1, 3, 4],
+            [1, 2, 3],
+            [1, 2, 3, 5],
+            [True, 2, 3, 4],
+            [1.0, 2, 3, 4],
+            [[1], 2, 3, 4],
+        )
+        for value in invalid:
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                validate_customer_permutation(self.instance, value)
+
+    def test_bfd_fallback_recovers_order_fragmentation_deterministically(self):
+        first = decode_customer_permutation(self.instance, [1, 2, 3, 4])
+        second = decode_customer_permutation(self.instance, [1, 2, 3, 4])
+        self.assertEqual(first, ((0, 1, 3, 0), (0, 2, 4, 0)))
+        self.assertEqual(second, first)
+        self.assertEqual(validate_routes(self.instance, first), first)
+
+    def test_decoder_never_exceeds_fleet_or_changes_customer_set(self):
+        routes = decode_customer_permutation(self.instance, [4, 3, 2, 1])
+        customers = [node for route in routes for node in route[1:-1]]
+        self.assertLessEqual(len(routes), self.instance.max_vehicles)
+        self.assertEqual(sorted(customers), [1, 2, 3, 4])
 
 
 def compile_template_solve():
