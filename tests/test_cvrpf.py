@@ -324,11 +324,11 @@ class CVRPFEvaluatorTests(unittest.TestCase):
     def test_task_description_requires_feasible_grouping_before_route_ordering(self):
         description = " ".join(task_description.lower().split())
         for required in (
-            "assign every customer",
-            "capacity-feasible groups",
-            "reassignment",
-            "only then optimize",
-            "never stop with unassigned customers",
+            "descending-demand best-fit assignment",
+            "do not use sequential route filling",
+            "break/retry loops",
+            "after every customer is assigned",
+            "without changing group membership",
         ):
             with self.subTest(required=required):
                 self.assertIn(required, description)
