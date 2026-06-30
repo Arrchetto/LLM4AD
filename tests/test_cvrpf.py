@@ -286,6 +286,7 @@ class CVRPFEvaluatorTests(unittest.TestCase):
 
     def test_template_function_documents_runtime_routes_and_fitness_direction(self):
         template_text = " ".join(template_program.lower().split())
+        self.assertLessEqual(len(template_program.splitlines()), 38)
         for required in (
             "30-second",
             "every customer",
@@ -299,6 +300,7 @@ class CVRPFEvaluatorTests(unittest.TestCase):
 
     def test_task_description_states_complete_strict_contract(self):
         description = " ".join(task_description.lower().split())
+        self.assertLessEqual(len(task_description), 1300)
         for required in (
             "50 training instances",
             "27",
@@ -408,11 +410,12 @@ class CVRPFEvaluatorTests(unittest.TestCase):
         self.assertTrue(math.isfinite(score))
 
     def test_standard_secure_evaluator_timeout_invalidates_candidate(self):
-        program = template_program.replace(
-            '    """Return complete deterministic CVRP routes within the 30-second evaluation.',
-            '    while True:\n        pass\n\n    """Unreachable.',
-            1,
-        )
+        program = """import numpy as np
+
+def solve(distance_matrix, demands, vehicle_capacity, max_vehicles):
+    while True:
+        pass
+"""
         evaluation = CVRPFEvaluation(data_root=DATA_ROOT, timeout_seconds=0.1)
         self.assertIsNone(SecureEvaluator(evaluation).evaluate_program(program))
 
