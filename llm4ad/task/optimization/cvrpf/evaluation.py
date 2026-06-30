@@ -9,11 +9,12 @@ import numpy as np
 from llm4ad.base import Evaluation
 
 from .cvrplib import CVRPInstance, load_cvrplib_sets, route_set_cost
+from .decoder import decode_customer_permutation
 from .template import task_description, template_program
 
 
 class CVRPFEvaluation(Evaluation):
-    """EoH evaluator for complete CVRP algorithms on CVRPLIB A+B."""
+    """EoH evaluator for CVRP customer-priority algorithms on CVRPLIB A+B."""
 
     supported_methods = ("EoH",)
     training_sets = ("A", "B")
@@ -56,12 +57,13 @@ class CVRPFEvaluation(Evaluation):
     def evaluate_with_artifact(self, candidate: Callable[..., Any]) -> dict[str, Any]:
         instance_costs: list[dict[str, Any]] = []
         for instance in self._training_instances:
-            routes = candidate(
+            candidate_output = candidate(
                 instance.distance_matrix.copy(),
                 instance.demands.copy(),
                 int(instance.capacity),
                 int(instance.max_vehicles),
             )
+            routes = decode_customer_permutation(instance, candidate_output)
             cost = route_set_cost(instance, routes)
             if not math.isfinite(cost):
                 raise ValueError(f"{instance.name}: candidate cost must be finite")

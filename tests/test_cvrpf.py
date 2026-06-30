@@ -435,6 +435,21 @@ class CVRPFEvaluatorTests(unittest.TestCase):
         self.assertTrue(math.isfinite(artifact["mean_distance"]))
         self.assertEqual(len(artifact["instance_costs"]), 50)
 
+    def test_evaluator_decodes_permutation_before_strict_costing(self):
+        def identity_priority(matrix, *_args):
+            return list(range(1, len(matrix)))
+
+        instance = self.evaluation.training_instances[0]
+        permutation = identity_priority(instance.distance_matrix)
+        expected_routes = decode_customer_permutation(instance, permutation)
+        expected_cost = route_set_cost(instance, expected_routes)
+
+        artifact = self.evaluation.evaluate_with_artifact(identity_priority)
+
+        self.assertEqual(
+            artifact["instance_costs"][0]["candidate_cost"], expected_cost
+        )
+
     def test_fitness_is_negative_mean_distance_and_artifact_is_ordered(self):
         artifact = self.evaluation.evaluate_with_artifact(self.solve)
         costs = [row["candidate_cost"] for row in artifact["instance_costs"]]
