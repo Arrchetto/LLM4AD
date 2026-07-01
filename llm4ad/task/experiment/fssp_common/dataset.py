@@ -35,7 +35,7 @@ class ManifestEntry:
 
 COMMON_DIR = Path(__file__).resolve().parent
 DEFAULT_MANIFEST_PATH = COMMON_DIR / "split_manifest.json"
-DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[5] / "data/benchmarks/fssp"
+DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[4] / "data/benchmarks/fssp"
 
 
 def parse_instance(

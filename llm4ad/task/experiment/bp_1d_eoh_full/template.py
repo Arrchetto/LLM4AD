@@ -2,11 +2,12 @@ template_program = '''
 def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int]) -> dict:
     """Construct a complete feasible packing for one offline 1D BP instance.
 
-    Return exactly {"num_bins": int, "bins": list[list[int]]}. ``bins`` must
-    be a list of lists, never a dictionary. Each inner list contains the
-    original 1-based item indices assigned to that bin, not item sizes. Every
-    index from 1 through ``num_items`` must occur exactly once, and each bin's
-    item-size sum must not exceed ``bin_capacity``.
+    Return a dictionary with exactly two entries: integer ``num_bins`` and
+    ``bins`` as ``list[list[int]]``. ``bins`` must be a list of lists, never a
+    dictionary. Each inner list contains the original 1-based item indices
+    assigned to that bin, not item sizes. Every index from 1 through
+    ``num_items`` must occur exactly once, and each bin's item-size sum must
+    not exceed ``bin_capacity``.
 
     Duplicate sizes are common. Preserve item identity while reordering, for
     example with ``(index + 1, items[index])`` pairs. Do not use items.index
@@ -44,6 +45,8 @@ task_description = (
     "indices. Minimize the number of bins. Implement the whole solver inside "
     "solve, including construction and any improvement phases; do not return "
     "a priority score or partial rule. "
+    "Explore genuinely different algorithm families across candidates, not "
+    "merely renamed variants of first-fit or best-fit decreasing. "
     "The training set contains 30 BPPLIB instances with about 100 items each, "
     "so keep the algorithm deterministic and computationally bounded."
 )

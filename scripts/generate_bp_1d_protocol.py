@@ -9,7 +9,7 @@ import random
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DATA_ROOT = REPO_ROOT.parent / "data/benchmarks/bp_1d/extracted"
+DATA_ROOT = REPO_ROOT / "data/benchmarks/bp_1d/extracted"
 OUTPUT = REPO_ROOT / "llm4ad/task/experiment/bp_1d_common"
 SEED = 20260701
 

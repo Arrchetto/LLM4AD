@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import re
 from typing import Tuple, List, Dict
 
 from .prompt import EoHPrompt
@@ -23,9 +22,27 @@ class EoHSampler:
 
     @classmethod
     def trim_thought_from_response(cls, response: str) -> str | None:
-        try:
-            pattern = r'\{.*?\}'  # Compared with r'\{(.*)\}'
-            bracketed_texts = re.findall(pattern, response)
-            return bracketed_texts[0]
-        except:
+        """Return the explicitly boxed algorithm description.
+
+        Code commonly contains dictionary and set literals, so accepting the
+        first arbitrary ``{...}`` block can register output-schema text as the
+        algorithm description and corrupt later EoH crossover prompts.
+        """
+        marker = r"\boxed"
+        marker_start = response.find(marker)
+        if marker_start < 0:
             return None
+        opening = response.find("{", marker_start + len(marker))
+        if opening < 0:
+            return None
+
+        depth = 0
+        for position in range(opening, len(response)):
+            character = response[position]
+            if character == "{":
+                depth += 1
+            elif character == "}":
+                depth -= 1
+                if depth == 0:
+                    return response[opening:position + 1]
+        return None

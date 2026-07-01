@@ -38,7 +38,7 @@ class CVRPFEvaluation(Evaluation):
         self.data_root = (
             Path(data_root).expanduser()
             if data_root is not None
-            else Path(__file__).resolve().parents[5]
+            else Path(__file__).resolve().parents[4]
             / "data"
             / "benchmarks"
             / "cvrp"
