@@ -1,0 +1,7 @@
+# SHA-256 checksums for Offline 1D Bin Packing raw/generated files
+
+e09f6ed02addc00f21db98229c17e1bdc0e42d201a3a799598594057a5a85316  Falkenauer.rar
+b1b0dd2c4f641256a5a5638fc5a5eb0819ac3f2da9baf1be0cad87176e5d1971  Scholl.rar
+61c703fb5a76fa3f74e4be5baad60a1ace57a11a73833843fba33f9575cfeb88  Wäscher.rar
+3c7d0a5d291cf842669cbca5d0b5249e6c0ec22476c4e0c9d9dace35571b7d59  Schwerin.rar
+cee6c3417a5fd34d69da1142898e70720f32a4b37c2e555e9cc07aae83104fec  Hard28.rar

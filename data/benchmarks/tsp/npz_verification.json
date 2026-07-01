@@ -1,0 +1,568 @@
+{
+  "npz_instance_count": 93,
+  "npz_coordinate_instance_count": 16,
+  "exact_matches": [
+    {
+      "name": "a280",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "bayg29",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "bays29",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "berlin52",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "bier127",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "brazil58",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "brg180",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "ch130",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "ch150",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "d1291",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "d1655",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "d198",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "d493",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "d657",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "dantzig42",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "dsj1000",
+      "edge_type": "CEIL_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "eil101",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "eil51",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "eil76",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "fl1400",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "fl1577",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "fl417",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "fri26",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gil262",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr120",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr17",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr21",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr24",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr48",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "hk48",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroA100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroA150",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroA200",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroB100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroB150",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroB200",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroC100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroD100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "kroE100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "lin105",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "lin318",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "nrw1379",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "p654",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pa561",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pcb1173",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pcb442",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr1002",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr107",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr124",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr136",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr144",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr152",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr226",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr264",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr299",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr439",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "pr76",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rat195",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rat575",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rat783",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rat99",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rd100",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rd400",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rl1304",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rl1323",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "rl1889",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "si1032",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "si175",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "si535",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "st70",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "swiss42",
+      "edge_type": "EXPLICIT",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "ts225",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "tsp225",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u1060",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u1432",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u159",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u1817",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u574",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "u724",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "vm1084",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "vm1748",
+      "edge_type": "EUC_2D",
+      "max_matrix_diff": 0.0,
+      "coord_status": "no_coord"
+    }
+  ],
+  "rounding_one": [
+    {
+      "name": "ali535",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "att48",
+      "edge_type": "ATT",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "att532",
+      "edge_type": "ATT",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "burma14",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr137",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr202",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr229",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr431",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr666",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "gr96",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "ulysses16",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    },
+    {
+      "name": "ulysses22",
+      "edge_type": "GEO",
+      "max_matrix_diff": 1.0,
+      "coord_status": "no_coord"
+    }
+  ],
+  "mismatches": [],
+  "missing_tsp": []
+}

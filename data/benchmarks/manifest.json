@@ -1,0 +1,603 @@
+[
+  {
+    "problem_family": "TSP",
+    "tasks": [
+      "tsp_construct",
+      "tsp_eoh_matrix",
+      "tsp_gls_2O"
+    ],
+    "dataset": "TSPLIB95",
+    "series": [
+      "ALL_tsp"
+    ],
+    "source_page": "https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/index.html",
+    "download_url": "https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/ALL_tsp.tar.gz",
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "ALL_tsp.tar.gz",
+        "size": 2024677,
+        "sha256": "0b0b9a2958ea0ac7c854bf2589b37b76b38b27bca04815d86489e4d76fa3ac61"
+      }
+    ],
+    "license": "Official TSPLIB95 data page does not state an independent modern open-source license; keep original files, author attribution and citation. Do not assume public redistribution rights.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; archive extracted successfully",
+      "format": "111 .tsp instances found after decompression",
+      "evaluator_contract": "MATCH after deterministic conversion",
+      "smoke_test": "PASS ({'status': 'PASS', 'tsp_construct_fitness': -8980.918279329191, 'tsp_eoh_matrix_fitness': -8980.0, 'edge_type': 'EUC_2D', 'sample_instance': 'berlin52.tsp'})"
+    },
+    "compatibility": "CONVERSION_REQUIRED",
+    "notes": [
+      "Coordinate instances can be used by tsp_construct and tsp_gls_2O after recomputing the distance matrix with the correct TSPLIB EDGE_WEIGHT_TYPE rule.",
+      "Explicit-matrix instances can be used by tsp_eoh_matrix after parsing EDGE_WEIGHT_SECTION.",
+      "Existing data/tsp_instances.npz is not modified or overwritten."
+    ]
+  },
+  {
+    "problem_family": "CVRP",
+    "tasks": [
+      "cvrp_construct"
+    ],
+    "dataset": "CVRPLIB",
+    "series": [
+      "A",
+      "B",
+      "P",
+      "X"
+    ],
+    "source_page": "https://galgos.inf.puc-rio.br/cvrplib/en/instances",
+    "download_url": [
+      "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance-set/4",
+      "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance-set/5",
+      "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance-set/12",
+      "https://galgos.inf.puc-rio.br/cvrplib/en/download/instance-set/17"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "A.7z",
+        "size": 9244,
+        "sha256": "92f6378b4e52ceef4d676d78d5fd0a70828b721be64457c8280cec4bcf9797e2"
+      },
+      {
+        "name": "B.7z",
+        "size": 8538,
+        "sha256": "ee60e03fd6bf03df98e1ec1aada8d40e57fbb056d8cc4648249eb54956ff1696"
+      },
+      {
+        "name": "P.7z",
+        "size": 4284,
+        "sha256": "aebb86994726a960b5445805e4ede075bc08d539c54b807176ce525c97bdbd9b"
+      },
+      {
+        "name": "X.7z",
+        "size": 297447,
+        "sha256": "141b45603580ab88c79b830c697c95348393f9105be14b0d70a9b9334f569fcb"
+      }
+    ],
+    "license": "CVRPLIB Terms of Use state the platform and materials are for research use; redistribution of individual datasets may be subject to additional terms. Do not assume unrestricted redistribution.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; .7z archives extracted with bsdtar",
+      "format": "174 .vrp instances found across sets ['A', 'B', 'P', 'X']",
+      "evaluator_contract": "MATCH after deterministic conversion",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -1146.3996317253793, 'sample_instance': 'A-n32-k5.vrp'})"
+    },
+    "compatibility": "CONVERSION_REQUIRED",
+    "notes": [
+      "CVRPLIB uses TSPLIB/VRPLIB .vrp format with 1-based node IDs; conversion to 0-based and distance recomputation is required.",
+      "The current evaluator does not penalize the number of vehicles; the objective is total distance subject to capacity feasibility."
+    ]
+  },
+  {
+    "problem_family": "VRPTW",
+    "tasks": [
+      "vrptw_construct"
+    ],
+    "dataset": "SINTEF Solomon + Gehring–Homberger",
+    "series": [
+      "Solomon-100",
+      "Homberger-200",
+      "Homberger-400",
+      "Homberger-600",
+      "Homberger-800",
+      "Homberger-1000"
+    ],
+    "source_page": "https://www.sintef.no/projectweb/top/vrptw/",
+    "download_url": [
+      "https://www.sintef.no/globalassets/project/top/vrptw/solomon/solomon-100.zip",
+      "https://www.sintef.no/globalassets/project/top/vrptw/homberger/200/homberger_200_customer_instances.zip",
+      "https://www.sintef.no/globalassets/project/top/vrptw/homberger/400/homberger_400_customer_instances.zip",
+      "https://www.sintef.no/globalassets/project/top/vrptw/homberger/600/homberger_600_customer_instances.zip",
+      "https://www.sintef.no/globalassets/project/top/vrptw/homberger/800/homberger_800_customer_instances.zip",
+      "https://www.sintef.no/globalassets/project/top/vrptw/homberger/1000/homberger_1000_customer_instances.zip"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "Solomon-100.zip",
+        "size": 83546,
+        "sha256": "8a0a72cbe6b7f8f9988ace4ebde0378ec34943acaaac47f2c408915e41887747"
+      },
+      {
+        "name": "Homberger-200.zip",
+        "size": 172162,
+        "sha256": "79092cc627135f370a6381b0c64afc8403e4d4ff74afa8808d28d208ac784571"
+      },
+      {
+        "name": "Homberger-400.zip",
+        "size": 330106,
+        "sha256": "669e9e7c6fe3513b2c62028d17b67aa5829d94cf2b379f362c8c71236e6a366c"
+      },
+      {
+        "name": "Homberger-600.zip",
+        "size": 497241,
+        "sha256": "df4c40d2191f7e854c46f5422a89055bae93fb1f880692181ee8ee7bf629636b"
+      },
+      {
+        "name": "Homberger-800.zip",
+        "size": 665429,
+        "sha256": "19cad076841f8bf6e8d05ee4d5c56ef2925dacfce64495e003d65bfc6d8545aa"
+      },
+      {
+        "name": "Homberger-1000.zip",
+        "size": 835533,
+        "sha256": "2e96845ee870ef21f833a216a79866e812232d3d922db3e14c30790f06780a81"
+      }
+    ],
+    "license": "SINTEF VRPTW pages do not provide an independent data license; keep original files and citation. Do not assume public redistribution rights.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; ZIP archives extracted",
+      "format": "356 .txt instances found",
+      "evaluator_contract": "MATCH after deterministic conversion",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -1812.170300068957, 'sample_instance': 'c101.txt'})"
+    },
+    "compatibility": "CONVERSION_REQUIRED",
+    "notes": [
+      "Solomon/Homberger files use a custom text format with 1-based node IDs; conversion to 0-based and a fixed distance/objective rule is required.",
+      "Classical Solomon comparisons often use a hierarchical objective (vehicles first, distance second); the current evaluator uses total distance, so the objective rule must be documented before use."
+    ]
+  },
+  {
+    "problem_family": "Orienteering Problem",
+    "tasks": [
+      "orienteering_construct",
+      "orienteering_class"
+    ],
+    "dataset": "KU Leuven Orienteering Problem Library",
+    "series": [
+      "TsiligiridesOP1",
+      "TsiligiridesOP2",
+      "TsiligiridesOP3",
+      "ChaoOP64",
+      "ChaoOP66"
+    ],
+    "source_page": "https://www.mech.kuleuven.be/en/mim/op",
+    "download_url": [
+      "https://www.mech.kuleuven.be/en/mim/op/instances/TsiligiridesOP1",
+      "https://www.mech.kuleuven.be/en/mim/op/instances/TsiligiridesOP2",
+      "https://www.mech.kuleuven.be/en/mim/op/instances/TsiligiridesOP3",
+      "https://www.mech.kuleuven.be/en/mim/op/instances/ChaoOP64",
+      "https://www.mech.kuleuven.be/en/mim/op/instances/ChaoOP66"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "TsiligiridesOP1.zip",
+        "size": 6341,
+        "sha256": "973ef6a5e82012fff6ebaa68096615be68111ab90b230e42dcf787db941deef7"
+      },
+      {
+        "name": "TsiligiridesOP2.zip",
+        "size": 3494,
+        "sha256": "1fca710dd4b9ba644403f2d2d855bc85969bd97f32b8860ab7c1b48cbb78547c"
+      },
+      {
+        "name": "TsiligiridesOP3.zip",
+        "size": 7584,
+        "sha256": "546b3cd571544e9cb5b1989c8731b97cb01219894f65b277652ff5291ce55a4f"
+      },
+      {
+        "name": "ChaoOP64.zip",
+        "size": 4894,
+        "sha256": "0b4d7b014f4223836ca1cdcb628a825825cba671b6a931a023fa85f5a063407c"
+      },
+      {
+        "name": "ChaoOP66.zip",
+        "size": 7948,
+        "sha256": "2b95b2d46a9a58e54e87d04389a1c96b94c2ebd59fbcd936d3bb1521e54e2ed6"
+      }
+    ],
+    "license": "KU Leuven OP download pages do not state an independent data license; keep original files and citation. Do not assume public redistribution rights.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; ZIP archives extracted",
+      "format": "89 .txt instances found",
+      "evaluator_contract": "MATCH after deterministic conversion",
+      "smoke_test": "PASS ({'status': 'PASS', 'constructive_fitness': 10.0, 'class_fitness': 10.0, 'sample_instance': 'tsiligirides_problem_1_budget_05.txt'})"
+    },
+    "compatibility": "CONVERSION_REQUIRED",
+    "notes": [
+      "Official format gives a separate start point and end point; the current evaluator accepts arbitrary start_node/end_node, so instances can be mapped with start=first point and end=second point.",
+      "Euclidean distances and the Tmax budget must be computed during conversion.",
+      "Normalized per-series .npz files created in normalized/ (5 files)."
+    ],
+    "normalized_files": [
+      {
+        "name": "normalized/ChaoOP64.npz",
+        "size": 38857,
+        "sha256": "72dbd48fa073a487ec8a558dc2de74d070729b4643ca099c4d9fae2144fc394c",
+        "instance_count": 14
+      },
+      {
+        "name": "normalized/ChaoOP66.npz",
+        "size": 33713,
+        "sha256": "ffeaeeb2ac3326c81ae61294e297ddf2c2e2680398e8d33c4c4faeafd8b51fc6",
+        "instance_count": 26
+      },
+      {
+        "name": "normalized/TsiligiridesOP1.npz",
+        "size": 8322,
+        "sha256": "9cbe24b4cf33358d1b681f7955788f11ffdc9ee060aec70a0ebdae575d6c53af",
+        "instance_count": 18
+      },
+      {
+        "name": "normalized/TsiligiridesOP2.npz",
+        "size": 3919,
+        "sha256": "3a87913e74fd11e47c4ed28e0c8058f9329ad1e140dae5ae0c6b57012483469c",
+        "instance_count": 11
+      },
+      {
+        "name": "normalized/TsiligiridesOP3.npz",
+        "size": 9161,
+        "sha256": "05c8a2badc3c7fd9c2bb390f596bf4e15fcdc5af3e3fa4da363c88c1723869ed",
+        "instance_count": 20
+      }
+    ]
+  },
+  {
+    "problem_family": "Offline 1D Bin Packing",
+    "tasks": [
+      "bp_1d_construct"
+    ],
+    "dataset": "BPPLIB",
+    "series": [
+      "Falkenauer U/T",
+      "Scholl",
+      "Wäscher",
+      "Schwerin",
+      "Hard28"
+    ],
+    "source_page": "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library",
+    "download_url": [
+      "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library/falkenauer.rar/@@download/file/Falkenauer.rar",
+      "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library/scholl.rar/@@download/file/Scholl.rar",
+      "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library/wascher.rar/@@download/file/W%C3%A4scher.rar",
+      "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library/schwerin.rar/@@download/file/Schwerin.rar",
+      "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library/hard28.rar/@@download/file/Hard28.rar"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "Falkenauer.rar",
+        "size": 43346,
+        "sha256": "e09f6ed02addc00f21db98229c17e1bdc0e42d201a3a799598594057a5a85316"
+      },
+      {
+        "name": "Scholl.rar",
+        "size": 270434,
+        "sha256": "b1b0dd2c4f641256a5a5638fc5a5eb0819ac3f2da9baf1be0cad87176e5d1971"
+      },
+      {
+        "name": "Wäscher.rar",
+        "size": 4106,
+        "sha256": "61c703fb5a76fa3f74e4be5baad60a1ace57a11a73833843fba33f9575cfeb88"
+      },
+      {
+        "name": "Schwerin.rar",
+        "size": 35021,
+        "sha256": "3c7d0a5d291cf842669cbca5d0b5249e6c0ec22476c4e0c9d9dace35571b7d59"
+      },
+      {
+        "name": "Hard28.rar",
+        "size": 10425,
+        "sha256": "cee6c3417a5fd34d69da1142898e70720f32a4b37c2e555e9cc07aae83104fec"
+      }
+    ],
+    "license": "BPPLIB repository has a code license, but the historical instance series come from many authors. No unified redistribution license is stated for every instance series; keep original attribution and citation.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; RAR archives extracted with bsdtar",
+      "format": "1615 .txt BPP-format instances found",
+      "evaluator_contract": "MATCH",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -49.0, 'sample_instance': 'Falkenauer_u120_00.txt'})"
+    },
+    "compatibility": "DIRECT",
+    "notes": [
+      "Only BPP-format files are used directly; CSP-format files would require demand expansion and are not claimed as direct matches."
+    ]
+  },
+  {
+    "problem_family": "Online 1D Bin Packing",
+    "tasks": [
+      "online_bin_packing",
+      "online_bin_packing_2O"
+    ],
+    "dataset": "FunSearch Weibull protocol",
+    "series": [
+      "Weibull(45,3) clipped to [1,100], seed 2024"
+    ],
+    "source_page": "https://github.com/google-deepmind/funsearch",
+    "download_url": "generated from LLM4AD/llm4ad/task/optimization/online_bin_packing/generate_weibull_instances.py",
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "generated/test_10000.json",
+        "size": 499976,
+        "sha256": "0f91def5fdf4e2cfc5cd026b2d15558689ecb404120ba43468ab4aec333ee18f"
+      },
+      {
+        "name": "generated/test_100000.json",
+        "size": 999196,
+        "sha256": "d5001ab7baad1a1bb799930f0d46301c4233cf19a9578e1ecf1f0714ec33bdfa"
+      },
+      {
+        "name": "generated/test_5000.json",
+        "size": 250215,
+        "sha256": "683cd8559fc3721e4af7850ebb1a3bb283ddd4c371247f78707d5658d32ca809"
+      },
+      {
+        "name": "generated/train_5000.json",
+        "size": 250215,
+        "sha256": "f5c972b14e91f857bdaf67b73a4f432af880fad554c91831af7f98c7d7befebd"
+      },
+      {
+        "name": "generated/val_5000.json",
+        "size": 250193,
+        "sha256": "7ce6669376f1039b917b59d892499b62d1ca5123e07a630954259f8022ffc006"
+      }
+    ],
+    "license": "FunSearch software is Apache-2.0; other materials are CC BY 4.0. Cite Romera-Paredes et al., Nature, DOI:10.1038/s41586-023-06924-6.",
+    "validation": {
+      "source": "P1/P5: official evaluation protocol + reproducible generator",
+      "integrity": "Generated deterministically from project generator with fixed seed",
+      "format": "21 JSON instance files with capacity, num_items and items array",
+      "evaluator_contract": "MATCH",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -2100.0, 'sample_instance': 'train_5000.json'})"
+    },
+    "compatibility": "DIRECT",
+    "notes": [
+      "No external static archive exists; the protocol, seed and generator version are the traceable source.",
+      "Instances are frozen after generation so repeated runs produce identical files."
+    ]
+  },
+  {
+    "problem_family": "2D Bin Packing",
+    "tasks": [
+      "bp_2d_construct"
+    ],
+    "dataset": "2DPackLib",
+    "series": [
+      "CLASS",
+      "BENG"
+    ],
+    "source_page": "https://site.unibo.it/operations-research/en/research/2dpacklib",
+    "download_url": [
+      "https://site.unibo.it/operations-research/en/research/2dpacklib/class.zip/@@download/file/CLASS.zip",
+      "https://site.unibo.it/operations-research/en/research/2dpacklib/beng.zip/@@download/file/BENG.zip"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "CLASS.zip",
+        "size": 240337,
+        "sha256": "9f5ca94d6a9ee5c9273302b8fbddf028c3f6a1d595e80622aafe79ec55589f9c"
+      },
+      {
+        "name": "BENG.zip",
+        "size": 5884,
+        "sha256": "90536b052787ed7d04bb58c4b03ab6308247685e3890facc3f2773867830816c"
+      }
+    ],
+    "license": "The 2DPackLib paper is CC BY 4.0; individual historical instance series do not each state an independent license. Keep original attribution and citation.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; ZIP archives extracted",
+      "format": "510 .ins2D instances found",
+      "evaluator_contract": "MATCH after deterministic conversion",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -9.0, 'sample_instance': 'cl_01_020_01.ins2D', 'expanded_items': 20})"
+    },
+    "compatibility": "CONVERSION_REQUIRED",
+    "notes": [
+      "Files include demand per item type; conversion must expand each type into the required number of individual rectangles.",
+      "The current evaluator does not rotate items and does not require guillotine cuts, so only oriented, free-cutting 2D-BPP instances are used."
+    ]
+  },
+  {
+    "problem_family": "0-1 Knapsack",
+    "tasks": [
+      "knapsack_construct"
+    ],
+    "dataset": "Pisinger hard knapsack instances",
+    "series": [
+      "small coefficients",
+      "large coefficients",
+      "hard instances"
+    ],
+    "source_page": "https://hjemmesider.diku.dk/~pisinger/codes.html",
+    "download_url": [
+      "http://www.diku.dk/~pisinger/smallcoeff_pisinger.tgz",
+      "http://www.diku.dk/~pisinger/largecoeff_pisinger.tgz",
+      "http://www.diku.dk/~pisinger/hardinstances_pisinger.tgz"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "smallcoeff_pisinger.tgz",
+        "size": 148168396,
+        "sha256": "e31a402af0609fe053afa56533f79cd15fa54c20172345829d65245068acf63d"
+      },
+      {
+        "name": "largecoeff_pisinger.tgz",
+        "size": 324559299,
+        "sha256": "cd4827c74bbd0b988bf5aaefe4919004730e6ddcdb66b57a1f96f9a6c812f4a8"
+      },
+      {
+        "name": "hardinstances_pisinger.tgz",
+        "size": 46359335,
+        "sha256": "e30971629f84bbd020a6de4fa9cd70e462ef6a9291ae65cb601cc79dc64bd097"
+      }
+    ],
+    "license": "Author page states the code is free for academic use; data files should be treated as academic-use only and cited appropriately. No commercial redistribution license is stated.",
+    "validation": {
+      "source": "P1/P2: author-provided benchmark instances",
+      "integrity": "SHA-256 computed; .tgz archives extracted",
+      "format": "318 .csv files found",
+      "evaluator_contract": "MATCH",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -594626.0, 'sample_instance': 'knapPI_1_10000_1000.csv'})"
+    },
+    "compatibility": "DIRECT",
+    "notes": [
+      "Each .csv contains multiple problem instances with capacity, optimal value and per-item weight/value lines."
+    ]
+  },
+  {
+    "problem_family": "QAP",
+    "tasks": [
+      "qap_construct"
+    ],
+    "dataset": "QAPLIB",
+    "series": [
+      "Nugent",
+      "Taillard",
+      "Skorin-Kapov",
+      "Burkard",
+      "Hadley",
+      "Lipa",
+      "others"
+    ],
+    "source_page": "https://qaplib.mgi.polymtl.ca/",
+    "download_url": [
+      "https://qaplib.mgi.polymtl.ca/data.d/qapdata.tar.gz",
+      "https://qaplib.mgi.polymtl.ca/soln.d/qapsoln.tar.gz"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "qapdata.tar.gz",
+        "size": 426914,
+        "sha256": "c6bf0e277156d097df21124f53ca5a5d0fa5344481ee401e13acb67694e190b3"
+      },
+      {
+        "name": "qapsoln.tar.gz",
+        "size": 14113,
+        "sha256": "002243dea9452000ec7ee5e43bd0aa651a639eb61039c4f35679531e67d71744"
+      }
+    ],
+    "license": "QAPLIB pages do not state a unified modern data license; instances come from many contributors. Keep series-level attribution and citation. Do not assume public redistribution rights.",
+    "validation": {
+      "source": "P1: problem-specific official benchmark library",
+      "integrity": "SHA-256 computed; .tar.gz archives extracted",
+      "format": "136 .dat problem files and 128 .sln solution files found",
+      "evaluator_contract": "MATCH",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -0.000724, 'sample_instance': 'nug12.dat'})"
+    },
+    "compatibility": "DIRECT",
+    "notes": [
+      "QAPLIB .dat files give n followed by flow and distance matrices; solution files are 1-based and must be shifted to 0-based for the evaluator."
+    ]
+  },
+  {
+    "problem_family": "Set Cover",
+    "tasks": [
+      "set_cover_construct"
+    ],
+    "dataset": "OR-Library unicost CYC/CLR",
+    "series": [
+      "CYC06–CYC11",
+      "CLR10–CLR13"
+    ],
+    "source_page": "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html",
+    "download_url": [
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc06.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc07.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc08.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc09.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc10.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpcyc11.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpclr10.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpclr11.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpclr12.txt",
+      "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/scpclr13.txt"
+    ],
+    "download_date": "2026-06-29",
+    "files": [
+      {
+        "name": "scpcyc06.txt",
+        "size": 5167,
+        "sha256": "d92472193b3eb69ce675941da0a4a6a4c5a7d31f6d2b4e1ff7815d4d298011d5"
+      },
+      {
+        "name": "scpcyc07.txt",
+        "size": 15119,
+        "sha256": "0b358ecba9227bb2e942f9b4edf9a6c557483df6157b5aa2b73e4e4882f020e3"
+      },
+      {
+        "name": "scpcyc08.txt",
+        "size": 41076,
+        "sha256": "89a8a298d01cb8a87597cc15b7498ed2e0066ca0a8bdb87a37f897488adda504"
+      },
+      {
+        "name": "scpcyc09.txt",
+        "size": 115957,
+        "sha256": "7a1e374bcf61ab77bf3913738f0fcd01a4cf0d13912a3a6005bc9db85fc774b0"
+      },
+      {
+        "name": "scpcyc10.txt",
+        "size": 300665,
+        "sha256": "0f53dc9cd09c16ee3e11e01313be0ea209b81832658770a1f2d35e267b5d46e7"
+      },
+      {
+        "name": "scpcyc11.txt",
+        "size": 758161,
+        "sha256": "77f9b41b62caa047b1d99dac1cb87f77c11ac0acd8bafb59a45fc0fe65ee80d4"
+      },
+      {
+        "name": "scpclr10.txt",
+        "size": 51720,
+        "sha256": "7ae9fa82a59ca6d411cf179ef3541183c4c18c03bac0a18fb81814536563a441"
+      },
+      {
+        "name": "scpclr11.txt",
+        "size": 167247,
+        "sha256": "4de5c8fa47124988b35839eeaee3b67a6f28b24159a3db854826e29298673847"
+      },
+      {
+        "name": "scpclr12.txt",
+        "size": 511915,
+        "sha256": "10f228f4419bdc4b2a698289b58509606a92c222ec2612234970e39e02fa528d"
+      },
+      {
+        "name": "scpclr13.txt",
+        "size": 1496065,
+        "sha256": "d46def0ee4e3d8e161051d5122ef597bfb855de48b4ead3d07c89d186b9b9402"
+      }
+    ],
+    "license": "OR-Library data pages do not state an independent open-source license; keep Beasley/original author attribution and citation. Do not assume public redistribution rights.",
+    "validation": {
+      "source": "P1/P3: OR-Library set covering instances",
+      "integrity": "SHA-256 computed for each .txt file",
+      "format": "10 .txt instances collected",
+      "evaluator_contract": "MATCH",
+      "smoke_test": "PASS ({'status': 'PASS', 'fitness': -60.0, 'sample_instance': 'scpcyc06.txt'})"
+    },
+    "compatibility": "DIRECT",
+    "notes": [
+      "Only unicost CYC/CLR instances are downloaded because the current evaluator ignores column costs and minimizes the number of selected subsets.",
+      "Other OR-Library SCP/rail series are PARTIAL and are intentionally not collected here."
+    ]
+  }
+]

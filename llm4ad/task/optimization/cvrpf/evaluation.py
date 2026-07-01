@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import os
 from pathlib import Path
 from typing import Any, Callable
 
@@ -35,15 +36,18 @@ class CVRPFEvaluation(Evaluation):
             timeout_seconds=timeout_seconds,
             **kwargs,
         )
-        self.data_root = (
-            Path(data_root).expanduser()
-            if data_root is not None
-            else Path(__file__).resolve().parents[5]
-            / "data"
-            / "benchmarks"
-            / "cvrp"
-            / "extracted"
-        )
+        if data_root is not None:
+            self.data_root = Path(data_root).expanduser().resolve()
+        elif os.environ.get("LLM4AD_DATA_ROOT"):
+            self.data_root = Path(os.environ["LLM4AD_DATA_ROOT"]).expanduser().resolve()
+        else:
+            self.data_root = (
+                Path(__file__).resolve().parents[4]
+                / "data"
+                / "benchmarks"
+                / "cvrp"
+                / "extracted"
+            )
         self._training_instances = load_cvrplib_sets(
             self.data_root,
             self.training_sets,

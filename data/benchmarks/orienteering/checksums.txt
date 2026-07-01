@@ -1,0 +1,7 @@
+# SHA-256 checksums for Orienteering Problem raw/generated files
+
+973ef6a5e82012fff6ebaa68096615be68111ab90b230e42dcf787db941deef7  TsiligiridesOP1.zip
+1fca710dd4b9ba644403f2d2d855bc85969bd97f32b8860ab7c1b48cbb78547c  TsiligiridesOP2.zip
+546b3cd571544e9cb5b1989c8731b97cb01219894f65b277652ff5291ce55a4f  TsiligiridesOP3.zip
+0b4d7b014f4223836ca1cdcb628a825825cba671b6a931a023fa85f5a063407c  ChaoOP64.zip
+2b95b2d46a9a58e54e87d04389a1c96b94c2ebd59fbcd936d3bb1521e54e2ed6  ChaoOP66.zip

@@ -1,0 +1,3 @@
+# SHA-256 checksums for TSP raw/generated files
+
+0b0b9a2958ea0ac7c854bf2589b37b76b38b27bca04815d86489e4d76fa3ac61  ALL_tsp.tar.gz

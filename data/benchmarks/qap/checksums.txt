@@ -1,0 +1,4 @@
+# SHA-256 checksums for QAP raw/generated files
+
+c6bf0e277156d097df21124f53ca5a5d0fa5344481ee401e13acb67694e190b3  qapdata.tar.gz
+002243dea9452000ec7ee5e43bd0aa651a639eb61039c4f35679531e67d71744  qapsoln.tar.gz

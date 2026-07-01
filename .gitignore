@@ -30,3 +30,6 @@ docs/
 tests/
 #LLaMEA logs content in this directory.
 **/exp-*
+
+# Large benchmark datasets not used by current tasks
+data/benchmarks/knapsack/

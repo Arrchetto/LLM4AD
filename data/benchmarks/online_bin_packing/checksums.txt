@@ -1,0 +1,7 @@
+# SHA-256 checksums for Online 1D Bin Packing raw/generated files
+
+0f91def5fdf4e2cfc5cd026b2d15558689ecb404120ba43468ab4aec333ee18f  generated/test_10000.json
+d5001ab7baad1a1bb799930f0d46301c4233cf19a9578e1ecf1f0714ec33bdfa  generated/test_100000.json
+683cd8559fc3721e4af7850ebb1a3bb283ddd4c371247f78707d5658d32ca809  generated/test_5000.json
+f5c972b14e91f857bdaf67b73a4f432af880fad554c91831af7f98c7d7befebd  generated/train_5000.json
+7ce6669376f1039b917b59d892499b62d1ca5123e07a630954259f8022ffc006  generated/val_5000.json

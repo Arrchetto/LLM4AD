@@ -1,0 +1,4 @@
+# SHA-256 checksums for 2D Bin Packing raw/generated files
+
+9f5ca94d6a9ee5c9273302b8fbddf028c3f6a1d595e80622aafe79ec55589f9c  CLASS.zip
+90536b052787ed7d04bb58c4b03ab6308247685e3890facc3f2773867830816c  BENG.zip

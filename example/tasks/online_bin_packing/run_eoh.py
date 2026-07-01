@@ -1,6 +1,7 @@
 import sys
 
-sys.path.append('../../')  # This is for finding all the modules
+sys.path.append('../../')
+import os  # This is for finding all the modules
 
 from llm4ad.task.optimization.online_bin_packing import OBPEvaluation
 from llm4ad.tools.llm.llm_api_https import HttpsApi
@@ -16,7 +17,7 @@ def main():
     #                timeout=60)
 
     llm = HttpsApi(host='api.bltcy.ai',  # your host endpoint, e.g., api.openai.com/v1/completions, api.deepseek.com
-                   key='sk-qMAtcWpKnF64zZxWqyLcqXRQYEtwnyiriaB0nR5GBldQ7S0A',  # your key, e.g., sk-abcdefghijklmn
+                   key=os.getenv('LLM_API_KEY', 'sk-<your-key-here>'),  # your key, set via env var LLM_API_KEY
                    model='gemini-2.5-flash',  # your llm, e.g., gpt-4o-mini, deepseek-v3.2, qwen3.5-plus, gemini-2.5-flash
                    timeout=120)
 

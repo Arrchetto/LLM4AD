@@ -32,12 +32,12 @@ from llm4ad.task.optimization.cvrpf.template import task_description, template_p
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DATA_ROOT = REPO_ROOT.parent / "data" / "benchmarks" / "cvrp" / "extracted"
+DATA_ROOT = REPO_ROOT / "data" / "benchmarks" / "cvrp" / "extracted"
 A_N32_VRP = DATA_ROOT / "A" / "A" / "A-n32-k5.vrp"
 A_N32_SOL = DATA_ROOT / "A" / "A" / "A-n32-k5.sol"
 TASK_DIR = REPO_ROOT / "llm4ad" / "task" / "optimization" / "cvrpf"
-SOURCE_EN = REPO_ROOT.parent / "data" / "benchmarks" / "cvrp" / "SOURCE.md"
-SOURCE_ZH = REPO_ROOT.parent / "data" / "benchmarks" / "cvrp" / "SOURCE.zh.md"
+SOURCE_EN = REPO_ROOT / "data" / "benchmarks" / "cvrp" / "SOURCE.md"
+SOURCE_ZH = REPO_ROOT / "data" / "benchmarks" / "cvrp" / "SOURCE.zh.md"
 
 
 def write_minimal_vrp(path: Path, *, edge_weight_type: str = "EUC_2D", depot: int = 1) -> None:

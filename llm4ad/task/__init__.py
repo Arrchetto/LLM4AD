@@ -17,8 +17,8 @@ for dirpath, _, filenames in os.walk(package_dir):
         if rel_path == '.':
             submodule_suffix = 'evaluation'
         else:
-            # Convert path separators to dots
-            submodule_suffix = rel_path.replace(os.path.sep, '.') + '.evaluation'
+            # Convert path separators to dots (handle both / and \ for cross-platform)
+            submodule_suffix = rel_path.replace('\\', '/').replace('/', '.') + '.evaluation'
             
         try:
             # Import the module (e.g., llm4ad.task.optimization.cvrp_construct.evaluation)
