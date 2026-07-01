@@ -1,0 +1,968 @@
+{
+  "instances": [
+    {
+      "instance_id": "tai100_10_00",
+      "relative_path": "taillard/tai100_10/tai100_10_00.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_01",
+      "relative_path": "taillard/tai100_10/tai100_10_01.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_02",
+      "relative_path": "taillard/tai100_10/tai100_10_02.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_03",
+      "relative_path": "taillard/tai100_10/tai100_10_03.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_04",
+      "relative_path": "taillard/tai100_10/tai100_10_04.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_05",
+      "relative_path": "taillard/tai100_10/tai100_10_05.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_06",
+      "relative_path": "taillard/tai100_10/tai100_10_06.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_07",
+      "relative_path": "taillard/tai100_10/tai100_10_07.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_08",
+      "relative_path": "taillard/tai100_10/tai100_10_08.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_10_09",
+      "relative_path": "taillard/tai100_10/tai100_10_09.txt",
+      "family": "Taillard",
+      "subseries": "tai100_10",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_00",
+      "relative_path": "taillard/tai100_20/tai100_20_00.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_01",
+      "relative_path": "taillard/tai100_20/tai100_20_01.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_02",
+      "relative_path": "taillard/tai100_20/tai100_20_02.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_03",
+      "relative_path": "taillard/tai100_20/tai100_20_03.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_04",
+      "relative_path": "taillard/tai100_20/tai100_20_04.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_05",
+      "relative_path": "taillard/tai100_20/tai100_20_05.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_06",
+      "relative_path": "taillard/tai100_20/tai100_20_06.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_07",
+      "relative_path": "taillard/tai100_20/tai100_20_07.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_08",
+      "relative_path": "taillard/tai100_20/tai100_20_08.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_20_09",
+      "relative_path": "taillard/tai100_20/tai100_20_09.txt",
+      "family": "Taillard",
+      "subseries": "tai100_20",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_00",
+      "relative_path": "taillard/tai100_5/tai100_5_00.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_01",
+      "relative_path": "taillard/tai100_5/tai100_5_01.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_02",
+      "relative_path": "taillard/tai100_5/tai100_5_02.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_03",
+      "relative_path": "taillard/tai100_5/tai100_5_03.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_04",
+      "relative_path": "taillard/tai100_5/tai100_5_04.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_05",
+      "relative_path": "taillard/tai100_5/tai100_5_05.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_06",
+      "relative_path": "taillard/tai100_5/tai100_5_06.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_07",
+      "relative_path": "taillard/tai100_5/tai100_5_07.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_08",
+      "relative_path": "taillard/tai100_5/tai100_5_08.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai100_5_09",
+      "relative_path": "taillard/tai100_5/tai100_5_09.txt",
+      "family": "Taillard",
+      "subseries": "tai100_5",
+      "size": 100,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_00",
+      "relative_path": "taillard/tai200_10/tai200_10_00.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_01",
+      "relative_path": "taillard/tai200_10/tai200_10_01.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_02",
+      "relative_path": "taillard/tai200_10/tai200_10_02.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_03",
+      "relative_path": "taillard/tai200_10/tai200_10_03.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_04",
+      "relative_path": "taillard/tai200_10/tai200_10_04.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_05",
+      "relative_path": "taillard/tai200_10/tai200_10_05.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_06",
+      "relative_path": "taillard/tai200_10/tai200_10_06.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_07",
+      "relative_path": "taillard/tai200_10/tai200_10_07.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_08",
+      "relative_path": "taillard/tai200_10/tai200_10_08.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_10_09",
+      "relative_path": "taillard/tai200_10/tai200_10_09.txt",
+      "family": "Taillard",
+      "subseries": "tai200_10",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_00",
+      "relative_path": "taillard/tai200_20/tai200_20_00.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_01",
+      "relative_path": "taillard/tai200_20/tai200_20_01.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_02",
+      "relative_path": "taillard/tai200_20/tai200_20_02.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_03",
+      "relative_path": "taillard/tai200_20/tai200_20_03.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_04",
+      "relative_path": "taillard/tai200_20/tai200_20_04.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_05",
+      "relative_path": "taillard/tai200_20/tai200_20_05.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_06",
+      "relative_path": "taillard/tai200_20/tai200_20_06.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_07",
+      "relative_path": "taillard/tai200_20/tai200_20_07.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_08",
+      "relative_path": "taillard/tai200_20/tai200_20_08.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai200_20_09",
+      "relative_path": "taillard/tai200_20/tai200_20_09.txt",
+      "family": "Taillard",
+      "subseries": "tai200_20",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai20_10_00",
+      "relative_path": "taillard/tai20_10/tai20_10_00.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_01",
+      "relative_path": "taillard/tai20_10/tai20_10_01.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_02",
+      "relative_path": "taillard/tai20_10/tai20_10_02.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_03",
+      "relative_path": "taillard/tai20_10/tai20_10_03.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_04",
+      "relative_path": "taillard/tai20_10/tai20_10_04.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_05",
+      "relative_path": "taillard/tai20_10/tai20_10_05.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_06",
+      "relative_path": "taillard/tai20_10/tai20_10_06.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_07",
+      "relative_path": "taillard/tai20_10/tai20_10_07.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_08",
+      "relative_path": "taillard/tai20_10/tai20_10_08.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_10_09",
+      "relative_path": "taillard/tai20_10/tai20_10_09.txt",
+      "family": "Taillard",
+      "subseries": "tai20_10",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_00",
+      "relative_path": "taillard/tai20_20/tai20_20_00.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_01",
+      "relative_path": "taillard/tai20_20/tai20_20_01.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_02",
+      "relative_path": "taillard/tai20_20/tai20_20_02.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_03",
+      "relative_path": "taillard/tai20_20/tai20_20_03.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_04",
+      "relative_path": "taillard/tai20_20/tai20_20_04.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_05",
+      "relative_path": "taillard/tai20_20/tai20_20_05.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_06",
+      "relative_path": "taillard/tai20_20/tai20_20_06.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_07",
+      "relative_path": "taillard/tai20_20/tai20_20_07.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_08",
+      "relative_path": "taillard/tai20_20/tai20_20_08.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_20_09",
+      "relative_path": "taillard/tai20_20/tai20_20_09.txt",
+      "family": "Taillard",
+      "subseries": "tai20_20",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_00",
+      "relative_path": "taillard/tai20_5/tai20_5_00.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_01",
+      "relative_path": "taillard/tai20_5/tai20_5_01.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_02",
+      "relative_path": "taillard/tai20_5/tai20_5_02.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_03",
+      "relative_path": "taillard/tai20_5/tai20_5_03.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_04",
+      "relative_path": "taillard/tai20_5/tai20_5_04.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_05",
+      "relative_path": "taillard/tai20_5/tai20_5_05.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_06",
+      "relative_path": "taillard/tai20_5/tai20_5_06.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_07",
+      "relative_path": "taillard/tai20_5/tai20_5_07.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_08",
+      "relative_path": "taillard/tai20_5/tai20_5_08.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai20_5_09",
+      "relative_path": "taillard/tai20_5/tai20_5_09.txt",
+      "family": "Taillard",
+      "subseries": "tai20_5",
+      "size": 20,
+      "split": "train"
+    },
+    {
+      "instance_id": "tai500_20_00",
+      "relative_path": "taillard/tai500_20/tai500_20_00.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_01",
+      "relative_path": "taillard/tai500_20/tai500_20_01.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_02",
+      "relative_path": "taillard/tai500_20/tai500_20_02.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_03",
+      "relative_path": "taillard/tai500_20/tai500_20_03.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_04",
+      "relative_path": "taillard/tai500_20/tai500_20_04.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_05",
+      "relative_path": "taillard/tai500_20/tai500_20_05.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_06",
+      "relative_path": "taillard/tai500_20/tai500_20_06.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_07",
+      "relative_path": "taillard/tai500_20/tai500_20_07.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_08",
+      "relative_path": "taillard/tai500_20/tai500_20_08.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai500_20_09",
+      "relative_path": "taillard/tai500_20/tai500_20_09.txt",
+      "family": "Taillard",
+      "subseries": "tai500_20",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "tai50_10_00",
+      "relative_path": "taillard/tai50_10/tai50_10_00.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_01",
+      "relative_path": "taillard/tai50_10/tai50_10_01.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_02",
+      "relative_path": "taillard/tai50_10/tai50_10_02.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_03",
+      "relative_path": "taillard/tai50_10/tai50_10_03.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_04",
+      "relative_path": "taillard/tai50_10/tai50_10_04.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_05",
+      "relative_path": "taillard/tai50_10/tai50_10_05.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_06",
+      "relative_path": "taillard/tai50_10/tai50_10_06.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_07",
+      "relative_path": "taillard/tai50_10/tai50_10_07.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_08",
+      "relative_path": "taillard/tai50_10/tai50_10_08.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_10_09",
+      "relative_path": "taillard/tai50_10/tai50_10_09.txt",
+      "family": "Taillard",
+      "subseries": "tai50_10",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_00",
+      "relative_path": "taillard/tai50_20/tai50_20_00.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_01",
+      "relative_path": "taillard/tai50_20/tai50_20_01.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_02",
+      "relative_path": "taillard/tai50_20/tai50_20_02.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_03",
+      "relative_path": "taillard/tai50_20/tai50_20_03.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_04",
+      "relative_path": "taillard/tai50_20/tai50_20_04.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_05",
+      "relative_path": "taillard/tai50_20/tai50_20_05.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_06",
+      "relative_path": "taillard/tai50_20/tai50_20_06.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_07",
+      "relative_path": "taillard/tai50_20/tai50_20_07.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_08",
+      "relative_path": "taillard/tai50_20/tai50_20_08.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_20_09",
+      "relative_path": "taillard/tai50_20/tai50_20_09.txt",
+      "family": "Taillard",
+      "subseries": "tai50_20",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_00",
+      "relative_path": "taillard/tai50_5/tai50_5_00.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_01",
+      "relative_path": "taillard/tai50_5/tai50_5_01.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_02",
+      "relative_path": "taillard/tai50_5/tai50_5_02.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_03",
+      "relative_path": "taillard/tai50_5/tai50_5_03.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_04",
+      "relative_path": "taillard/tai50_5/tai50_5_04.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_05",
+      "relative_path": "taillard/tai50_5/tai50_5_05.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_06",
+      "relative_path": "taillard/tai50_5/tai50_5_06.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_07",
+      "relative_path": "taillard/tai50_5/tai50_5_07.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_08",
+      "relative_path": "taillard/tai50_5/tai50_5_08.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    },
+    {
+      "instance_id": "tai50_5_09",
+      "relative_path": "taillard/tai50_5/tai50_5_09.txt",
+      "family": "Taillard",
+      "subseries": "tai50_5",
+      "size": 50,
+      "split": "validation"
+    }
+  ],
+  "metadata": {
+    "family": "Taillard",
+    "source": "CO-Bench/CO-Bench Flow shop scheduling (Taillard instances); https://huggingface.co/datasets/CO-Bench/CO-Bench"
+  }
+}

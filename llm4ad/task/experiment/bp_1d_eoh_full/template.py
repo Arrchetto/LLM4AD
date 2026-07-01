@@ -1,6 +1,17 @@
 template_program = '''
 def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int]) -> dict:
-    """Construct a complete feasible packing for one offline 1D BP instance."""
+    """Construct a complete feasible packing for one offline 1D BP instance.
+
+    Return exactly {"num_bins": int, "bins": list[list[int]]}. ``bins`` must
+    be a list of lists, never a dictionary. Each inner list contains the
+    original 1-based item indices assigned to that bin, not item sizes. Every
+    index from 1 through ``num_items`` must occur exactly once, and each bin's
+    item-size sum must not exceed ``bin_capacity``.
+
+    Duplicate sizes are common. Preserve item identity while reordering, for
+    example with ``(index + 1, items[index])`` pairs. Do not use items.index
+    to recover indices and do not return sorted item values as assignments.
+    """
     order = sorted(range(num_items), key=lambda index: items[index], reverse=True)
     bins = []
     remaining = []
@@ -25,10 +36,14 @@ def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int])
 task_description = (
     "Design a complete algorithm for offline one-dimensional bin packing. "
     "The solve function receives one full instance and must assign every item "
-    "exactly once to capacity-feasible bins using one-based item indices. "
-    "Return a dictionary containing num_bins and bins. Minimize the number of "
-    "bins. Implement the whole solver inside solve, including construction and "
-    "any improvement phases; do not return a priority score or partial rule. "
+    "exactly once to capacity-feasible bins using its original 1-based item "
+    "index. Return exactly a dictionary containing integer num_bins and bins "
+    "as a list of lists of indices; bins must never be a dictionary or contain "
+    "item sizes. Duplicate sizes are common, so preserve identity with pairs "
+    "such as (index + 1, items[index]); do not use items.index to reconstruct "
+    "indices. Minimize the number of bins. Implement the whole solver inside "
+    "solve, including construction and any improvement phases; do not return "
+    "a priority score or partial rule. "
     "The training set contains 30 BPPLIB instances with about 100 items each, "
     "so keep the algorithm deterministic and computationally bounded."
 )
@@ -39,4 +54,3 @@ def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int])
     namespace: dict[str, object] = {}
     exec(template_program, namespace)
     return namespace["solve"](instance_id, bin_capacity, num_items, items)
-

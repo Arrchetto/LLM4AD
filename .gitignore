@@ -30,3 +30,4 @@ docs/
 tests/
 #LLaMEA logs content in this directory.
 **/exp-*
+data/benchmarks/knapsack/
