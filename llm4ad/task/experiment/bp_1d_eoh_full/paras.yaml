@@ -1,0 +1,4 @@
+name: BP1DEoHFullEvaluation
+timeout_seconds: 30
+data_root: null
+split: train

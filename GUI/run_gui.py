@@ -294,6 +294,8 @@ def get_required_parameters(path):
 
 def _convert_parameter_value(raw_value, value_type):
     """Convert a GUI entry string using the type inferred from YAML."""
+    if value_type == "<class 'NoneType'>":
+        return raw_value or None
     if value_type == "<class 'int'>":
         return int(raw_value)
     if value_type == "<class 'float'>":
@@ -378,6 +380,18 @@ def clear_problem_param_frame():
         widget.destroy()
 
 
+def discover_task_directories(path):
+    """Return runnable task folders, excluding support-only packages."""
+    path = os.fspath(path)
+    return sorted(
+        name
+        for name in os.listdir(path)
+        if name not in {'__pycache__', '_data', 'co_bench'}
+        and os.path.isdir(os.path.join(path, name))
+        and os.path.isfile(os.path.join(path, name, 'paras.yaml'))
+    )
+
+
 def problem_type_select(event=None):
     global problem_listbox
     global default_problem_index
@@ -390,19 +404,15 @@ def problem_type_select(event=None):
     problem_listbox = tk.Listbox(problem_frame, height=6, bg='white', selectbackground='lightgray', font=('Comic Sans MS', 12))
     problem_listbox.pack(anchor=tk.NW, fill='both', expand=True, padx=5, pady=5)
     path = os.path.join(TASK_DIR, objectives_var.get())
-    for name in os.listdir(path):
-        full_path = os.path.join(path, name)
-        if os.path.isdir(full_path) and name != '__pycache__' and name != '_data' and name != 'co_bench':
-            problem_listbox.insert(tk.END, name)
+    for name in discover_task_directories(path):
+        problem_listbox.insert(tk.END, name)
         if name in default_problem:
             default_problem_index = problem_listbox.size() - 1
 
     if objectives_var.get() == 'optimization':
         path = os.path.join(TASK_DIR, objectives_var.get(), 'co_bench')  # todo
-        for name in os.listdir(path):
-            full_path = os.path.join(path, name)
-            if os.path.isdir(full_path) and name != '__pycache__' and name != '_data':
-                problem_listbox.insert(tk.END, name)
+        for name in discover_task_directories(path):
+            problem_listbox.insert(tk.END, name)
 
     problem_listbox.bind("<<ListboxSelect>>", on_problem_select)
     on_problem_select(problem_listbox.select_set(default_problem_index))

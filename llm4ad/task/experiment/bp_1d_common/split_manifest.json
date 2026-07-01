@@ -1,0 +1,2734 @@
+{
+  "protocol": "bp-1d-complete-optimizer-v1",
+  "selection_seed": 20260701,
+  "instances": [
+    {
+      "instance_id": "Hard28_BPP119",
+      "relative_path": "Hard28/Hard28/Hard28_BPP119.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP13",
+      "relative_path": "Hard28/Hard28/Hard28_BPP13.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP14",
+      "relative_path": "Hard28/Hard28/Hard28_BPP14.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP144",
+      "relative_path": "Hard28/Hard28/Hard28_BPP144.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP175",
+      "relative_path": "Hard28/Hard28/Hard28_BPP175.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP178",
+      "relative_path": "Hard28/Hard28/Hard28_BPP178.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP181",
+      "relative_path": "Hard28/Hard28/Hard28_BPP181.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP195",
+      "relative_path": "Hard28/Hard28/Hard28_BPP195.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP359",
+      "relative_path": "Hard28/Hard28/Hard28_BPP359.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP360",
+      "relative_path": "Hard28/Hard28/Hard28_BPP360.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP40",
+      "relative_path": "Hard28/Hard28/Hard28_BPP40.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP419",
+      "relative_path": "Hard28/Hard28/Hard28_BPP419.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP47",
+      "relative_path": "Hard28/Hard28/Hard28_BPP47.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP485",
+      "relative_path": "Hard28/Hard28/Hard28_BPP485.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP531",
+      "relative_path": "Hard28/Hard28/Hard28_BPP531.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP561",
+      "relative_path": "Hard28/Hard28/Hard28_BPP561.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP60",
+      "relative_path": "Hard28/Hard28/Hard28_BPP60.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP640",
+      "relative_path": "Hard28/Hard28/Hard28_BPP640.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP645",
+      "relative_path": "Hard28/Hard28/Hard28_BPP645.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP709",
+      "relative_path": "Hard28/Hard28/Hard28_BPP709.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP716",
+      "relative_path": "Hard28/Hard28/Hard28_BPP716.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP742",
+      "relative_path": "Hard28/Hard28/Hard28_BPP742.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP766",
+      "relative_path": "Hard28/Hard28/Hard28_BPP766.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP781",
+      "relative_path": "Hard28/Hard28/Hard28_BPP781.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP785",
+      "relative_path": "Hard28/Hard28/Hard28_BPP785.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 180,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP814",
+      "relative_path": "Hard28/Hard28/Hard28_BPP814.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP832",
+      "relative_path": "Hard28/Hard28/Hard28_BPP832.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 160,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Hard28_BPP900",
+      "relative_path": "Hard28/Hard28/Hard28_BPP900.txt",
+      "family": "Hard28",
+      "subseries": "Hard28",
+      "size": 200,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP1",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP1.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP10",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP10.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP100",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP100.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP11",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP11.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP12",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP12.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP13",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP13.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP14",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP14.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP15",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP15.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP16",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP16.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP17",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP17.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP18",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP18.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP19",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP19.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP2",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP2.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP20",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP20.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP21",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP21.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP22",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP22.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP23",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP23.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP24",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP24.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP25",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP25.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP26",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP26.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP27",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP27.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP28",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP28.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP29",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP29.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP3",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP3.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP30",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP30.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP31",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP31.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP32",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP32.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP33",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP33.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP34",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP34.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP35",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP35.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP36",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP36.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP37",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP37.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP38",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP38.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP39",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP39.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP4",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP4.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP40",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP40.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP41",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP41.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP42",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP42.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP43",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP43.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP44",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP44.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP45",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP45.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP46",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP46.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP47",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP47.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP48",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP48.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP49",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP49.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP5",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP5.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP50",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP50.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP51",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP51.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP52",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP52.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP53",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP53.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP54",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP54.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP55",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP55.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP56",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP56.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP57",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP57.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP58",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP58.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP59",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP59.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP6",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP6.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP60",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP60.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP61",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP61.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP62",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP62.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP63",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP63.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP64",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP64.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP65",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP65.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP66",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP66.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP67",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP67.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP68",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP68.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP69",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP69.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP7",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP7.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP70",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP70.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP71",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP71.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP72",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP72.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP73",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP73.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP74",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP74.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP75",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP75.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP76",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP76.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP77",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP77.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP78",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP78.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP79",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP79.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP8",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP8.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP80",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP80.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP81",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP81.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP82",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP82.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP83",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP83.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP84",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP84.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP85",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP85.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP86",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP86.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP87",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP87.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP88",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP88.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP89",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP89.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP9",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP9.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP90",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP90.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP91",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP91.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP92",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP92.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP93",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP93.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP94",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP94.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP95",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP95.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP96",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP96.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP97",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP97.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP98",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP98.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin1_BPP99",
+      "relative_path": "Schwerin/Schwerin/Schwerin_1/Schwerin1_BPP99.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 1",
+      "size": 100,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP1",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP1.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP10",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP10.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP100",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP100.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP11",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP11.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP12",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP12.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP13",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP13.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP14",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP14.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP15",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP15.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP16",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP16.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP17",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP17.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP18",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP18.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP19",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP19.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP2",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP2.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP20",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP20.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP21",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP21.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP22",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP22.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP23",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP23.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP24",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP24.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP25",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP25.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP26",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP26.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP27",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP27.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP28",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP28.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP29",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP29.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP3",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP3.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP30",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP30.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP31",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP31.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP32",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP32.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP33",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP33.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP34",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP34.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP35",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP35.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP36",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP36.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP37",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP37.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP38",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP38.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP39",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP39.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP4",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP4.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP40",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP40.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP41",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP41.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP42",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP42.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP43",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP43.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP44",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP44.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP45",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP45.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP46",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP46.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP47",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP47.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP48",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP48.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP49",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP49.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP5",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP5.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP50",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP50.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP51",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP51.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP52",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP52.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP53",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP53.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP54",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP54.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP55",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP55.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP56",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP56.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP57",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP57.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP58",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP58.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP59",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP59.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP6",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP6.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP60",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP60.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP61",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP61.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP62",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP62.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP63",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP63.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP64",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP64.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP65",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP65.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP66",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP66.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP67",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP67.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP68",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP68.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP69",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP69.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP7",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP7.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP70",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP70.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP71",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP71.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP72",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP72.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP73",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP73.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP74",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP74.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP75",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP75.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP76",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP76.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP77",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP77.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP78",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP78.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP79",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP79.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP8",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP8.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP80",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP80.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP81",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP81.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP82",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP82.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP83",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP83.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP84",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP84.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP85",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP85.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP86",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP86.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP87",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP87.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP88",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP88.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP89",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP89.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP9",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP9.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP90",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP90.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP91",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP91.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP92",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP92.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP93",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP93.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP94",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP94.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP95",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP95.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP96",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP96.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP97",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP97.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP98",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP98.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Schwerin2_BPP99",
+      "relative_path": "Schwerin/Schwerin/Schwerin_2/Schwerin2_BPP99.txt",
+      "family": "Schwerin",
+      "subseries": "Schwerin 2",
+      "size": 120,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0005",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0005.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 114,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0014",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0014.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 96,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0022",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0022.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 57,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0030",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0030.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 111,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0044",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0044.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 164,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0049",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0049.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 141,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0054",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0054.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 144,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0055A",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0055A.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 142,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0055B",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0055B.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 239,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0058",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0058.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 91,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0065",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0065.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 60,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0068",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0068.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 163,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0075",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0075.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 228,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0082",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0082.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 86,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0084",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0084.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 92,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0095",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0095.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 153,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Waescher_TEST0097",
+      "relative_path": "Wäscher/Wäscher/Waescher_TEST0097.txt",
+      "family": "Waescher",
+      "subseries": "Waescher",
+      "size": 119,
+      "split": "test_cross_family"
+    },
+    {
+      "instance_id": "Falkenauer_u1000_01",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u1000_01.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 1000,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u1000_04",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u1000_04.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 1000,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u1000_09",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u1000_09.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 1000,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u1000_10",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u1000_10.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 1000,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u250_00",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u250_00.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 250,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u250_08",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u250_08.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 250,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u250_13",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u250_13.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 250,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u250_14",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u250_14.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 250,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u500_13",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u500_13.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u500_14",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u500_14.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u500_17",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u500_17.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u500_18",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u500_18.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t249_01",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t249_01.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 249,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t249_09",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t249_09.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 249,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t249_12",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t249_12.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 249,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t249_15",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t249_15.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 249,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t501_04",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t501_04.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 501,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t501_07",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t501_07.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 501,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t501_12",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t501_12.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 501,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_t501_13",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t501_13.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 501,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3C2W2_H",
+      "relative_path": "Scholl/Scholl/Scholl_1/N3C2W2_H.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3C2W4_J",
+      "relative_path": "Scholl/Scholl/Scholl_1/N3C2W4_J.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3C3W1_K",
+      "relative_path": "Scholl/Scholl/Scholl_1/N3C3W1_K.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3C3W4_E",
+      "relative_path": "Scholl/Scholl/Scholl_1/N3C3W4_E.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4C2W4_J",
+      "relative_path": "Scholl/Scholl/Scholl_1/N4C2W4_J.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4C2W4_P",
+      "relative_path": "Scholl/Scholl/Scholl_1/N4C2W4_P.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4C3W4_C",
+      "relative_path": "Scholl/Scholl/Scholl_1/N4C3W4_C.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4C3W4_L",
+      "relative_path": "Scholl/Scholl/Scholl_1/N4C3W4_L.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3W1B1R1",
+      "relative_path": "Scholl/Scholl/Scholl_2/N3W1B1R1.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3W2B1R3",
+      "relative_path": "Scholl/Scholl/Scholl_2/N3W2B1R3.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3W3B1R4",
+      "relative_path": "Scholl/Scholl/Scholl_2/N3W3B1R4.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N3W4B1R9",
+      "relative_path": "Scholl/Scholl/Scholl_2/N3W4B1R9.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 200,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4W1B2R8",
+      "relative_path": "Scholl/Scholl/Scholl_2/N4W1B2R8.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4W2B3R4",
+      "relative_path": "Scholl/Scholl/Scholl_2/N4W2B3R4.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4W3B2R8",
+      "relative_path": "Scholl/Scholl/Scholl_2/N4W3B2R8.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "N4W4B1R6",
+      "relative_path": "Scholl/Scholl/Scholl_2/N4W4B1R6.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 500,
+      "split": "test_cross_scale"
+    },
+    {
+      "instance_id": "Falkenauer_u120_01",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_01.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_05",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_05.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_07",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_07.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_10",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_10.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_11",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_11.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_13",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_13.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_15",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_15.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_19",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_19.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_00",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_00.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_04",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_04.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_06",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_06.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_07",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_07.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_08",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_08.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_10",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_10.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_17",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_17.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_t120_18",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_18.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C1W4_L",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C1W4_L.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C2W1_C",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W1_C.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C2W2_T",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W2_T.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C2W4_H",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W4_H.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C2W4_L",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W4_L.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C3W1_J",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C3W1_J.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2C3W2_J",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C3W2_J.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W2B3R7",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W2B3R7.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W2B3R9",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W2B3R9.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W3B1R5",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B1R5.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W3B2R2",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B2R2.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W3B3R2",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B3R2.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W3B3R5",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B3R5.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "N2W4B1R6",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W4B1R6.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "train"
+    },
+    {
+      "instance_id": "Falkenauer_u120_00",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_00.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_02",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_02.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_03",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_03.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_06",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_06.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_08",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_08.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_12",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_12.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_17",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_17.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_u120_18",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer U/Falkenauer_u120_18.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer U",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_01",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_01.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_02",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_02.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_03",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_03.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_09",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_09.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_11",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_11.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_12",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_12.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_13",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_13.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "Falkenauer_t120_15",
+      "relative_path": "Falkenauer/Falkenauer/Falkenauer_T/Falkenauer_t120_15.txt",
+      "family": "Falkenauer",
+      "subseries": "Falkenauer T",
+      "size": 120,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C1W1_G",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C1W1_G.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C1W4_O",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C1W4_O.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C2W1_E",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W1_E.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C2W1_K",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W1_K.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C2W2_M",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W2_M.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C2W4_S",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C2W4_S.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2C3W4_E",
+      "relative_path": "Scholl/Scholl/Scholl_1/N2C3W4_E.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 1",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W1B1R0",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W1B1R0.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W3B1R8",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B1R8.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W3B2R1",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B2R1.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W3B2R9",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W3B2R9.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W4B1R1",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W4B1R1.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W4B1R2",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W4B1R2.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    },
+    {
+      "instance_id": "N2W4B3R5",
+      "relative_path": "Scholl/Scholl/Scholl_2/N2W4B3R5.txt",
+      "family": "Scholl",
+      "subseries": "Scholl 2",
+      "size": 100,
+      "split": "validation"
+    }
+  ]
+}
