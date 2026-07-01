@@ -33,3 +33,4 @@ tests/
 
 # Large benchmark datasets not used by current tasks
 data/benchmarks/knapsack/
+data/tsp_instances.npz
