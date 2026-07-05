@@ -1,0 +1,4 @@
+name: FSSPLLAMEAClassEvaluation
+timeout_seconds: 30
+data_root: null
+split: train
