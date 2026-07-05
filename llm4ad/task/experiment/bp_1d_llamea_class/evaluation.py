@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from pathlib import Path
 from typing import Any
 
@@ -20,13 +21,14 @@ from llm4ad.task.experiment.bp_1d_common.references import (
 
 from .template import task_description, template_program
 
-__all__ = ["BP1DEoHFullEvaluation"]
 
+class BP1DLLaMEAClassEvaluation(Evaluation):
+    """Evaluate complete LLaMEA optimizer classes on a frozen BPPLIB split."""
 
-class BP1DEoHFullEvaluation(Evaluation):
-    """Evaluate complete EoH bin-packing solvers on a frozen BPPLIB split."""
-
-    supported_methods = ("EoH",)
+    candidate_type = "class"
+    candidate_name = "BinPackingOptimizer"
+    candidate_call_signature = ("instance",)
+    supported_methods = ("LLaMEA",)
 
     def __init__(
         self,
@@ -62,16 +64,25 @@ class BP1DEoHFullEvaluation(Evaluation):
     ) -> float | None:
         return self.evaluate(callable_func)
 
-    def evaluate(self, solver: callable) -> float | None:
+    def evaluate(self, optimizer_class: type) -> float | None:
         series_gaps: list[tuple[str, float]] = []
         try:
             for instance in self.instances:
-                solution = solver(
-                    instance.instance_id,
-                    instance.bin_capacity,
-                    instance.num_items,
-                    list(instance.items),
-                )
+                optimizer = optimizer_class()
+                instance_dict = {
+                    "instance_id": instance.instance_id,
+                    "bin_capacity": instance.bin_capacity,
+                    "num_items": instance.num_items,
+                    "items": list(instance.items),
+                }
+                solution = optimizer(instance_dict)
+                if not isinstance(solution, dict):
+                    return None
+                candidate_bins = solution.get("bins")
+                if not isinstance(candidate_bins, list) or any(
+                    not isinstance(bin_items, list) for bin_items in candidate_bins
+                ):
+                    return None
                 bins = validate_packing(instance, solution)
                 reference = self.references[instance.instance_id]
                 if reference.status not in {"OPTIMAL", "BEST_KNOWN"}:
@@ -79,6 +90,10 @@ class BP1DEoHFullEvaluation(Evaluation):
                 series_gaps.append(
                     (instance.subseries, relative_gap(len(bins), reference.bins))
                 )
-            return macro_average_fitness(series_gaps)
+            fitness = macro_average_fitness(series_gaps)
+            return fitness if math.isfinite(fitness) else None
         except Exception:
             return None
+
+
+__all__ = ["BP1DLLaMEAClassEvaluation"]
