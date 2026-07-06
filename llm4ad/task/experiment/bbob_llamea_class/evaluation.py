@@ -9,6 +9,7 @@ from llm4ad.task.experiment.bbob_common import (
     compute_aocc,
     get_problem,
     make_bbob_training_set,
+    parse_int_list,
     run_once_class,
 )
 
@@ -43,17 +44,17 @@ class BBOBLLaMEAClassEvaluation(Evaluation):
             timeout_seconds=timeout_seconds,
             **kwargs,
         )
-        self.dim = dim
-        self.instances = instances or [1, 2, 3]
-        self.seeds = seeds or [0, 1, 2]
-        self.budget = budget
-        self.lb = lb
-        self.ub = ub
+        self.dim = int(dim)
+        self.instances = parse_int_list(instances) or [1, 2, 3]
+        self.seeds = parse_int_list(seeds) or [0, 1, 2]
+        self.budget = int(budget)
+        self.lb = float(lb)
+        self.ub = float(ub)
         self.configs = make_bbob_training_set(
-            dim=dim,
+            dim=self.dim,
             instances=self.instances,
             seeds=self.seeds,
-            budget=budget,
+            budget=self.budget,
         )
 
     def evaluate_program(
