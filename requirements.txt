@@ -18,5 +18,6 @@ datasets
 huggingface_hub
 networkx
 llamea
+ioh<0.3.22
 # langchain_ollama
 git+https://github.com/XAI-liacs/LLaMEA.git@main        #New method.
