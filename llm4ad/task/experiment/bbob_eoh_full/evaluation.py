@@ -80,4 +80,4 @@ class BBOBEoHEvaluation(Evaluation):
             if not np.isfinite(aocc):
                 return None
             aoccs.append(aocc)
-        return -float(np.mean(aoccs))
+        return float(np.mean(aoccs))
