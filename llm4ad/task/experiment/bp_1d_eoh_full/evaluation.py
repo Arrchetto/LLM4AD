@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +11,8 @@ from llm4ad.task.experiment.bp_1d_common.dataset import (
 )
 from llm4ad.task.experiment.bp_1d_common.evaluation_core import (
     macro_average_fitness,
+    macro_average_metric,
+    packing_concentration,
     relative_gap,
     validate_packing,
 )
@@ -20,7 +23,58 @@ from llm4ad.task.experiment.bp_1d_common.references import (
 
 from .template import task_description, template_program
 
-__all__ = ["BP1DEoHFullEvaluation"]
+__all__ = ["BP1DEoHFullEvaluation", "SelectionFitness"]
+
+
+_BANNED_IMPORTS = {
+    "cvxpy",
+    "mip",
+    "ortools",
+    "pulp",
+    "requests",
+    "scipy",
+    "socket",
+    "subprocess",
+}
+
+
+def _uses_external_solver_or_io(program_str: str) -> bool:
+    """Reject optimizer delegation and external I/O before candidate execution."""
+    try:
+        tree = ast.parse(program_str)
+    except SyntaxError:
+        return True
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            modules = [alias.name for alias in node.names]
+        elif isinstance(node, ast.ImportFrom):
+            modules = [node.module or ""]
+        else:
+            modules = []
+        for module in modules:
+            root = module.split(".", 1)[0]
+            if root in _BANNED_IMPORTS:
+                return True
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+            if node.func.id in {"__import__", "eval", "exec", "open"}:
+                return True
+    return False
+
+
+class SelectionFitness(float):
+    """Primary fitness with a selection-only secondary tie-break value."""
+
+    def __new__(
+        cls,
+        primary: float,
+        tie_break: float = 0.0,
+    ) -> "SelectionFitness":
+        value = super().__new__(cls, primary)
+        value.tie_break = float(tie_break)
+        return value
+
+    def __reduce__(self):
+        return type(self), (float(self), self.tie_break)
 
 
 class BP1DEoHFullEvaluation(Evaluation):
@@ -60,14 +114,16 @@ class BP1DEoHFullEvaluation(Evaluation):
         callable_func: callable,
         **kwargs: Any,
     ) -> float | None:
+        if _uses_external_solver_or_io(program_str):
+            return None
         return self.evaluate(callable_func)
 
     def evaluate(self, solver: callable) -> float | None:
         series_gaps: list[tuple[str, float]] = []
+        series_concentration: list[tuple[str, float]] = []
         try:
             for instance in self.instances:
                 solution = solver(
-                    instance.instance_id,
                     instance.bin_capacity,
                     instance.num_items,
                     list(instance.items),
@@ -79,6 +135,12 @@ class BP1DEoHFullEvaluation(Evaluation):
                 series_gaps.append(
                     (instance.subseries, relative_gap(len(bins), reference.bins))
                 )
-            return macro_average_fitness(series_gaps)
+                series_concentration.append(
+                    (instance.subseries, packing_concentration(instance, bins))
+                )
+            return SelectionFitness(
+                macro_average_fitness(series_gaps),
+                tie_break=macro_average_metric(series_concentration),
+            )
         except Exception:
             return None

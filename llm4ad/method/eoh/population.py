@@ -40,8 +40,11 @@ class Population:
         return self._generation
 
     def survival(self):
-        pop = self._population + self._next_gen_pop
-        pop = sorted(pop, key=lambda f: f.score, reverse=True)
+        # Put offspring first so Python's stable sort prefers novel code when
+        # fitness ties. This prevents discrete objectives from freezing the
+        # initial population while still retaining strictly better parents.
+        pop = self._next_gen_pop + self._population
+        pop = sorted(pop, key=self._fitness_rank, reverse=True)
         self._population = pop[:self._pop_size]
         self._next_gen_pop = []
         self._generation += 1
@@ -70,17 +73,23 @@ class Population:
 
     def has_duplicate_function(self, func: str | Function) -> bool:
         for f in self._population:
-            if str(f) == str(func) or func.score == f.score:
+            if str(f) == str(func):
                 return True
         for f in self._next_gen_pop:
-            if str(f) == str(func) or func.score == f.score:
+            if str(f) == str(func):
                 return True
         return False
 
     def selection(self) -> Function:
         funcs = [f for f in self._population if not math.isinf(f.score)]
-        func = sorted(funcs, key=lambda f: f.score, reverse=True)
+        func = sorted(funcs, key=self._fitness_rank, reverse=True)
         p = [1 / (r + len(func)) for r in range(len(func))]
         p = np.array(p)
         p = p / np.sum(p)
         return np.random.choice(func, p=p)
+
+    @staticmethod
+    def _fitness_rank(func: Function) -> tuple[float, float]:
+        """Rank by primary fitness, then an optional internal tie-break."""
+        score = func.score
+        return float(score), float(getattr(score, "tie_break", 0.0))

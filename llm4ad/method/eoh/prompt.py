@@ -42,13 +42,12 @@ Do not give additional explanations.'''
         # create prompt content for all individuals
         indivs_prompt = ''
         for i, indi in enumerate(indivs):
-            indi.docstring = ''
-            indivs_prompt += f'No. {i + 1} algorithm and the corresponding code are:\n{indi.algorithm}\n{str(indi)}'
+            indivs_prompt += f'No. {i + 1} algorithm and the corresponding code are:\n{indi.algorithm}\n{indi.to_code_without_docstring()}'
         # create prmpt content
         prompt_content = f'''{task_prompt}
 I have {len(indivs)} existing algorithms with their codes as follows:
 {indivs_prompt}
-Please help me create a new algorithm that has a totally different form from the given ones. 
+Please design a new algorithm that is as different as possible from the selected algorithms.
 1. First, describe your new algorithm and main steps in one sentence. The description must use exactly this form: \\boxed{{your description}}.
 2. Next, implement the following Python function:
 {str(temp_func)}
@@ -66,13 +65,12 @@ Do not give additional explanations.'''
         # create prompt content for all individuals
         indivs_prompt = ''
         for i, indi in enumerate(indivs):
-            indi.docstring = ''
-            indivs_prompt += f'No. {i + 1} algorithm and the corresponding code are:\n{indi.algorithm}\n{str(indi)}'
+            indivs_prompt += f'No. {i + 1} algorithm and the corresponding code are:\n{indi.algorithm}\n{indi.to_code_without_docstring()}'
         # create prmpt content
         prompt_content = f'''{task_prompt}
 I have {len(indivs)} existing algorithms with their codes as follows:
 {indivs_prompt}
-Please help me create a new algorithm that has a totally different form from the given ones but can be motivated from them.
+Please explore a new algorithm that shares the common idea of the selected algorithms but is as different as possible from them by introducing new parts.
 1. Firstly, identify the common backbone idea in the provided algorithms. 
 2. Secondly, based on the backbone idea describe your new algorithm in one sentence. The description must use exactly this form: \\boxed{{your description}}.
 3. Thirdly, implement the following Python function:
@@ -93,7 +91,7 @@ I have one algorithm with its code as follows. Algorithm description:
 {indi.algorithm}
 Code:
 {str(indi)}
-Please assist me in creating a new algorithm that has a different form but can be a modified version of the algorithm provided.
+Please modify the provided algorithm for better performance.
 1. First, describe your new algorithm and main steps in one sentence. The description must use exactly this form: \\boxed{{your description}}.
 2. Next, implement the following Python function:
 {str(temp_func)}
@@ -112,7 +110,7 @@ I have one algorithm with its code as follows. Algorithm description:
 {indi.algorithm}
 Code:
 {str(indi)}
-Please identify the main algorithm parameters and assist me in creating a new algorithm that has a different parameter settings of the score function provided.
+Please identify the parameters of the provided algorithm and try different parameter values without designing a new algorithm.
 1. First, describe your new algorithm and main steps in one sentence. The description must use exactly this form: \\boxed{{your description}}.
 2. Next, implement the following Python function:
 {str(temp_func)}

@@ -1,5 +1,5 @@
 template_program = '''
-def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int]) -> dict:
+def solve(bin_capacity: int, num_items: int, items: list[int]) -> dict:
     """Construct a complete feasible packing for one offline 1D BP instance.
 
     Return a dictionary with exactly two entries: integer ``num_bins`` and
@@ -47,13 +47,32 @@ task_description = (
     "a priority score or partial rule. "
     "Explore genuinely different algorithm families across candidates, not "
     "merely renamed variants of first-fit or best-fit decreasing. "
+    "A post-processing phase changes the primary objective only if it can "
+    "empty and remove a bin; merely swapping items or improving utilization "
+    "without reducing the bin count is insufficient. Relevant algorithmic "
+    "directions include subset-sum-based bin filling, explicit bin elimination, "
+    "ejection chains, bounded repacking, and limited backtracking, but candidates "
+    "may develop other deterministic approaches. "
     "The training set contains 30 BPPLIB instances with about 100 items each, "
-    "so keep the algorithm deterministic and computationally bounded."
+    "so keep the algorithm deterministic and computationally bounded. "
+    "Implement the search logic yourself. Do not call or import general-purpose "
+    "optimization solvers such as scipy.optimize, scipy.optimize.milp, OR-Tools, "
+    "PuLP, python-mip, or CVXPY, and do not use files, network access, subprocesses, "
+    "eval, or exec. The instance identifier is intentionally unavailable: do not "
+    "hard-code instance names, stored solutions, or best-known values. "
+    "Fixed reference background from the baseline solver on this training set: "
+    "the macro-average gap is 4.5712%; the per-series gaps are 1.2861% on "
+    "Falkenauer U, 14.6875% on Falkenauer T, 0.3322% on Scholl 1, and "
+    "1.9790% on Scholl 2. Falkenauer T is therefore the main weakness of the "
+    "reference baseline. Falkenauer T instances are triplet-structured: strong "
+    "packings commonly form triples whose sizes complement one another toward "
+    "the bin capacity. Detect and exploit such structure from item sizes rather "
+    "than from an instance name. This summary is static problem context."
 )
 
 
-def solve(instance_id: str, bin_capacity: int, num_items: int, items: list[int]) -> dict:
+def solve(bin_capacity: int, num_items: int, items: list[int]) -> dict:
     """Baseline best-fit-decreasing solver used by tests and documentation."""
     namespace: dict[str, object] = {}
     exec(template_program, namespace)
-    return namespace["solve"](instance_id, bin_capacity, num_items, items)
+    return namespace["solve"](bin_capacity, num_items, items)

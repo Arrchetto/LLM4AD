@@ -69,3 +69,30 @@ def macro_average_fitness(series_gaps: Sequence[tuple[str, float]]) -> float:
     series_means = [sum(values) / len(values) for values in grouped.values()]
     return -float(sum(series_means) / len(series_means))
 
+
+def packing_concentration(
+    instance: BPInstance,
+    bins: Sequence[Sequence[int]],
+) -> float:
+    """Return a bounded fill-concentration metric for a valid packing."""
+    if not bins:
+        raise ValueError("at least one bin is required")
+    squared_utilization = []
+    for bin_items in bins:
+        load = sum(instance.items[index - 1] for index in bin_items)
+        utilization = load / instance.bin_capacity
+        squared_utilization.append(utilization * utilization)
+    return float(sum(squared_utilization) / len(squared_utilization))
+
+
+def macro_average_metric(series_values: Sequence[tuple[str, float]]) -> float:
+    """Macro-average a bounded secondary metric across instance series."""
+    grouped: dict[str, list[float]] = defaultdict(list)
+    for series, value in series_values:
+        if not series or not math.isfinite(value):
+            raise ValueError("series and finite metric are required")
+        grouped[series].append(float(value))
+    if not grouped:
+        raise ValueError("at least one metric value is required")
+    series_means = [sum(values) / len(values) for values in grouped.values()]
+    return float(sum(series_means) / len(series_means))
