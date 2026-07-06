@@ -1,0 +1,13 @@
+dim: 5
+instances:
+  - 1
+  - 2
+  - 3
+seeds:
+  - 0
+  - 1
+  - 2
+budget: 10000
+lb: 1.0e-8
+ub: 1.0e2
+timeout_seconds: 60
