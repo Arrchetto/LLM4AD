@@ -415,7 +415,9 @@ def problem_type_select(event=None):
             problem_listbox.insert(tk.END, name)
 
     problem_listbox.bind("<<ListboxSelect>>", on_problem_select)
-    on_problem_select(problem_listbox.select_set(default_problem_index))
+    if default_problem_index is not None:
+        problem_listbox.select_set(default_problem_index)
+    on_problem_select(None)
 
 
 ###############################################################################
